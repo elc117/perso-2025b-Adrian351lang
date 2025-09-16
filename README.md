@@ -30,3 +30,4 @@ Para converter de base X para base Y, é necessário primeiro converter base X p
 3. https://www.geeksforgeeks.org/digital-logic/number-system-and-base-conversions/
 4. https://en.wikipedia.org/wiki/Numeral_system
 5. https://math.ucr.edu/~jbritton/BaseConversionGuide.pdf
+6. https://stackoverflow.com/questions/3261236/how-to-get-the-ascii-value-of-a-character-in-haskell
