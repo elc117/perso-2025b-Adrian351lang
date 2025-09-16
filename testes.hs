@@ -32,6 +32,18 @@ baseToDecimal base number = sum [(base ^ weight) * base64toInt digit | (digit, w
 -- "base64toInt digit" converte o dígito para inteiro.
 -- a soma acumula o valor total em decimal.
 
+-- converte um número decimal para um número em string de uma determinada base.
+-- recebe a base e o número decimal.
+-- método das divisões sucessivas.
+-- convert é recursivo.
+decimalToBase :: Int -> Int -> String
+decimalToBase base 0 = "0"                       -- caso especial para zero
+decimalToBase base n = reverse (convert n)       -- inverte o resultado para ficar na ordem correta
+    where
+        convert 0 = ""                           -- caso base para recursão
+        convert x = let (q, r) = x `divMod` base -- divide e pega quociente e resto
+                    in intToBase64 r : convert q -- converte o resto para dígito e recursa com o quociente
+
 main :: IO()
 main = do
     -- putStrLn "Digite o número a converter (caracteres válidos: (0-9), (A-Z), (a-z), '+', '/'):"
