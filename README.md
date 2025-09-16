@@ -7,8 +7,26 @@ Este projeto se trata de um sistema para converter um número em uma determinada
 O sistema suporta números nas bases 2 até 64. Os caracteres aceitos são (0-9), (A-Z), (a-z), '+' e '/'. <br>
 A menor base possível é 2 (sistema binário) porque não seria possível uma base 1. <br>
 A maior base é 64 porque há um limite de caracteres reconhecidos como dígitos. <br>
-Decidi usar como base e sistema Base64, que usa os caracteres (0-9), (A-Z), (a-z), '+' e '/', como mencionado acima. <br>
+
+# Desenvolvimento:
+Decidi usar como base o sistema Base64, que usa os caracteres (0-9), (A-Z), (a-z), '+' e '/', como mencionado acima. <br>
+Para converter de base X para base Y, é necessário primeiro converter base X para base 10 e depois base 10 para base Y. <br>
+
+## Para converter de base X para base 10, se usa a seguinte fórmula:
+```soma(base ^ peso * dígito; do dígito menos significativo ao mais significativo)```
+<br> <br> <br>
+![image](https://wikimedia.org/api/rest_v1/media/math/render/svg/ed875ba981decb322a05335f7efdb5490244d67f)
+
+## Para converter de base 10 para base Y, se usa o método das divisões sucessivas, que se trata de:
+1. Dividir o número por Y e pegar os restos até chegar a 0.
+2. Os restos serão o número na base Y.
+
+<br> <br>
+![image](https://homework.study.com/cimages/multimages/16/capture14204776639827140608.png)
 
 # Referências:
-1. https://en.wikipedia.org/wiki/Base64 <br>
+1. https://en.wikipedia.org/wiki/Base64
 2. https://www.mathsisfun.com/numbers/bases.html
+3. https://www.geeksforgeeks.org/digital-logic/number-system-and-base-conversions/
+4. https://en.wikipedia.org/wiki/Numeral_system
+5. https://math.ucr.edu/~jbritton/BaseConversionGuide.pdf
