@@ -22,6 +22,16 @@ base64toInt c
     | c == '/'  = 63
     | otherwise = error "caractere inválido"
 
+-- converte um número em string de uma determinada base para decimal.
+-- recebe um inteiro representando a base e a string contendo o número a converter.
+baseToDecimal :: Int -> String -> Int
+baseToDecimal base number = sum [(base ^ weight) * base64toInt digit | (digit, weight) <- zip (reverse number) [0..], base64toInt digit < base]
+-- fórmula: soma(base ^ peso * dígito; do dígito menos significativo ao mais significativo)
+-- "zip" agrupa cada caracter com o seu peso correspondente.
+-- "reverse number" é para numerar o dígito MENOS significativo primeiro.
+-- "base64toInt digit" converte o dígito para inteiro.
+-- a soma acumula o valor total em decimal.
+
 main :: IO()
 main = do
     -- putStrLn "Digite o número a converter (caracteres válidos: (0-9), (A-Z), (a-z), '+', '/'):"
