@@ -1,6 +1,7 @@
 -- Esse arquivo é para os testes das funções, não é o arquivo principal.
 
-import Data.Char (isDigit, isUpper, isLower)
+import Data.Char (isDigit, isUpper, isLower, toUpper)
+import Data.List (intercalate)
 
 -- converte um número para sua representação em caracter (base64).
 -- a base máxima é 64 porque (10 números + 26 letras maiúsculas + 26 letras minúsculas + 2 caracteres especiais = 64).
@@ -84,25 +85,74 @@ morseParse str
     | str == "---.."= '8'
     | str == "----."= '9'
     | str == "-----"= '0'
+    | str == "/"    = ' '
     | otherwise = error "código morse inválido"
 
 getMorse :: Char -> String
-getMorse c = "" -- TODO
+getMorse ch
+    | c == 'A' = ".-"
+    | c == 'B' = "-..."
+    | c == 'C' = "-.-."
+    | c == 'D' = "-.."
+    | c == 'E' = "."
+    | c == 'F' = "..-."
+    | c == 'G' = "--."
+    | c == 'H' = "...."
+    | c == 'I' = ".."
+    | c == 'J' = ".---"
+    | c == 'K' = "-.-"
+    | c == 'L' = ".-.."
+    | c == 'M' = "--"
+    | c == 'N' = "-."
+    | c == 'O' = "---"
+    | c == 'P' = ".--."
+    | c == 'Q' = "--.-"
+    | c == 'R' = ".-."
+    | c == 'S' = "..."
+    | c == 'T' = "-"
+    | c == 'U' = "..-"
+    | c == 'V' = "...-"
+    | c == 'W' = ".--"
+    | c == 'X' = "-..-"
+    | c == 'Y' = "-.--"
+    | c == 'Z' = "--.."
+    | c == '1' = ".----"
+    | c == '2' = "..---"
+    | c == '3' = "...--"
+    | c == '4' = "....-"
+    | c == '5' = "....."
+    | c == '6' = "-...."
+    | c == '7' = "--..."
+    | c == '8' = "---.."
+    | c == '9' = "----."
+    | c == '0' = "-----"
+    | c == ' ' = "/"
+    | otherwise = error "caractere não disponível em morse"
 
--- corverte uma string em código morse para texto comum
+    where
+        c = toUpper ch
+
+-- converte uma string em código morse para texto comum
 -- separa as palavras (letras, em morse) e verifica cada uma
 morseToText :: String -> String
 morseToText str = map morseParse (words str) 
 
 -- o inverso da de cima
 textToMorse :: String -> String
-textToMorse str = map getMorse str
+textToMorse str = intercalate " " (map getMorse str)
 
 main :: IO()
 main = do
-    putStrLn "Digite o texto em morse (letras separadas por espaços simples):"
-    morse <- getLine
-    putStrLn $ "Morse decodificado: " ++ (morseToText morse)
+    -- putStrLn "Digite o texto em morse (separar letras por espaços simples e palavras por barras):"
+    -- morse <- getLine
+    -- putStrLn $ "Morse original: " ++ morse
+    -- putStrLn $ "Morse decodificado: " ++ (morseToText morse)
+
+    putStrLn "Digite o texto em morse (separar letras por espaços simples e palavras por barras):"
+    text <- getLine
+    putStrLn $ "Texto original: " ++ text
+    putStrLn $ "Texto em morse: " ++ (textToMorse text)
+
     -- putStrLn "Digite o número a converter (caracteres válidos: (0-9), (A-Z), (a-z), '+', '/'):"
     -- input <- getLine
     -- putStrLn "Digite a base do número de entrada (2-64):"
