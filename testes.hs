@@ -46,17 +46,72 @@ decimalToBase base n = reverse (convert n)       -- inverte o resultado para fic
         convert x = let (q, r) = x `divMod` base -- divide e pega quociente e resto
                     in intToBase64 r : convert q -- converte o resto para dígito e recursa com o quociente
 
+morseParse :: String -> Char
+morseParse str
+    | str == ".-"   = 'A'
+    | str == "-..." = 'B'
+    | str == "-.-." = 'C'
+    | str == "-.."  = 'D'
+    | str == "."    = 'E'
+    | str == "..-." = 'F'
+    | str == "--."  = 'G'
+    | str == "...." = 'H'
+    | str == ".."   = 'I'
+    | str == ".---" = 'J'
+    | str == "-.-"  = 'K'
+    | str == ".-.." = 'L'
+    | str == "--"   = 'M'
+    | str == "-."   = 'N'
+    | str == "---"  = 'O'
+    | str == ".--." = 'P'
+    | str == "--.-" = 'Q'
+    | str == ".-."  = 'R'
+    | str == "..."  = 'S'
+    | str == "-"    = 'T'
+    | str == "..-"  = 'U'
+    | str == "...-" = 'V'
+    | str == ".--"  = 'W'
+    | str == "-..-" = 'X'
+    | str == "-.--" = 'Y'
+    | str == "--.." = 'Z'
+    | str == ".----"= '1'
+    | str == "..---"= '2'
+    | str == "...--"= '3'
+    | str == "....-"= '4'
+    | str == "....."= '5'
+    | str == "-...."= '6'
+    | str == "--..."= '7'
+    | str == "---.."= '8'
+    | str == "----."= '9'
+    | str == "-----"= '0'
+    | otherwise = error "código morse inválido"
+
+getMorse :: Char -> String
+getMorse c = "" -- TODO
+
+-- corverte uma string em código morse para texto comum
+-- separa as palavras (letras, em morse) e verifica cada uma
+morseToText :: String -> String
+morseToText str = map morseParse (words str) 
+
+-- o inverso da de cima
+textToMorse :: String -> String
+textToMorse str = map getMorse str
+
 main :: IO()
 main = do
-    putStrLn "Digite o número a converter (caracteres válidos: (0-9), (A-Z), (a-z), '+', '/'):"
-    input <- getLine
-    putStrLn "Digite a base do número de entrada (2-64):"
-    inputBase <- readLn
-    putStrLn "Digite a base do número de saída (2-64):"
-    outputBase <- readLn
+    putStrLn "Digite o texto em morse (letras separadas por espaços simples):"
+    morse <- getLine
+    putStrLn $ "Morse decodificado: " ++ (morseToText morse)
+    -- putStrLn "Digite o número a converter (caracteres válidos: (0-9), (A-Z), (a-z), '+', '/'):"
+    -- input <- getLine
+    -- putStrLn "Digite a base do número de entrada (2-64):"
+    -- inputBase <- readLn
+    -- putStrLn "Digite a base do número de saída (2-64):"
+    -- outputBase <- readLn
 
-    let decimal = baseToDecimal inputBase input
-    let result = decimalToBase outputBase decimal
+    -- let decimal = baseToDecimal inputBase input
+    -- let result = decimalToBase outputBase decimal
 
-    putStrLn $ "Valor original: " ++ input ++ " (base " ++ (show inputBase) ++ ")"
-    putStrLn $ "Valor convertido: " ++ result ++ " (base " ++ (show outputBase) ++ ")"
+    -- putStrLn $ "Valor original: " ++ input ++ " (base " ++ (show inputBase) ++ ")"
+    -- putStrLn $ "Valor convertido: " ++ result ++ " (base " ++ (show outputBase) ++ ")"
