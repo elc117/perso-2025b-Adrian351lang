@@ -1,4 +1,4 @@
-NAME = testes
+NAME = morse
 
 default:
 	ghc -dynamic $(NAME).hs
