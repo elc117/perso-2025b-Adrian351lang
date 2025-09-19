@@ -155,3 +155,12 @@ main = scotty 3000 $ do
         let originalText = T.unpack text
         let morseText = textToMorse originalText
         html $ T.pack $ "Texto original: " ++ originalText ++ "<br>Texto em morse: " ++ morseText
+    
+    get "/morse/decode" $ do
+        html "<form action='/morse/decode/result' method='post'><input type='text' name='text' required><input type='submit' value='Converter morse para texto'></form>"
+
+    post "/morse/decode/result" $ do
+        text <- formParam "text" :: ActionM Text
+        let morseText = T.unpack text
+        let decodedText = morseToText morseText
+        html $ T.pack $ "Texto original: " ++ morseText ++ "<br>Texto em morse: " ++ decodedText
