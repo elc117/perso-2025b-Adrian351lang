@@ -8,6 +8,7 @@ Também implementei um sistema de codificação e decodificação de código mor
 O sistema suporta números nas bases 2 até 64. Os caracteres aceitos são (0-9), (A-Z), (a-z), '+' e '/'. <br>
 A menor base possível é 2 (sistema binário) porque não seria possível uma base 1. <br>
 A maior base é 64 porque há um limite de caracteres reconhecidos como dígitos. <br>
+Por enquanto, não há suporte para números com vírgula. <br>
 
 # Desenvolvimento:
 Decidi usar como base o sistema Base64, que usa os caracteres (0-9), (A-Z), (a-z), '+' e '/', como mencionado acima. <br>
@@ -15,8 +16,6 @@ Para converter de base X para base Y, é necessário primeiro converter base X p
 Para a conversão de código morse, apenas separei cada letra do texto usei um sistema com switch-case para a conversão. <br>
 <br> <br>
 ![image](https://images.sampletemplates.com/wp-content/uploads/2015/05/12144219/Morse-Code-Chart-to-Download.jpg)
-
-Deixei dois arquivos de teste, um para testar as funções de conversão de bases e outro para o conversor de morse, ambos usando o IO padrão do haskell. <br>
 
 ## Para converter de base X para base 10, se usa a seguinte fórmula:
 ```soma(base ^ peso * dígito; do dígito menos significativo ao mais significativo)```
@@ -29,6 +28,9 @@ Deixei dois arquivos de teste, um para testar as funções de conversão de base
 
 <br> <br>
 ![image](https://homework.study.com/cimages/multimages/16/capture14204776639827140608.png)
+
+# Execução:
+Deixei dois arquivos de teste, um para testar as funções de conversão de bases e outro para o conversor de morse, ambos usando o IO padrão do haskell. <br>
 
 # Referências:
 1. https://en.wikipedia.org/wiki/Base64
