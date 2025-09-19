@@ -1,6 +1,5 @@
-NAME = morse
+NAME = scotty
 
 default:
 	ghc $(NAME).hs
 	./$(NAME)
-	rm $(NAME) $(NAME).hi $(NAME).o
