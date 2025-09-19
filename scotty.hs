@@ -154,22 +154,12 @@ main = scotty 3000 $ do
     -- sessão de conversão de bases
     -- acessar em http://localhost:3000/bases
     get "/bases" $ do
-        let input  = "FFFF"
-        let inputBase = 16
-        let outputBase = 10
-
-        let decimal = baseToDecimal inputBase input
-        let result = decimalToBase outputBase decimal
-
-        text $ T.append "Valor original: " input
-        text $ T.append "Valor convertido: " result
+        text "."
 
     -- sessão de conversão de morse
     -- acessar em http://localhost:3000/morse
     get "/morse" $ do
-        let morse = ". . / .-. ."
-        text $ T.append "Morse original: " morse
-        text $ T.append "Morse decodificado: " (morseToText morse)
+        text "."
 
     get "/" $ do
         html "<form action='/submit' method='post'><input name='userInput' type='text'><input type='submit'></form>"
