@@ -170,3 +170,10 @@ main = scotty 3000 $ do
         let morse = ". . / .-. ."
         text $ T.append "Morse original: " morse
         text $ T.append "Morse decodificado: " (morseToText morse)
+
+    get "/" $ do
+        html "<form action='/submit' method='post'><input name='userInput' type='text'><input type='submit'></form>"
+
+    post "/submit" $ do
+        userInput <- param "userInput" :: ActionM Text
+        html $ mconcat ["You entered: ", userInput]
