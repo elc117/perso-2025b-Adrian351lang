@@ -4,6 +4,7 @@ Curso: Sistemas de Informação
 
 # Tema:
 Este projeto se trata de um sistema para converter um número em uma determinada base para seu equivalente em outra base. <br>
+Também implementei um sistema de codificação e decodificação de código morse. <br>
 O sistema suporta números nas bases 2 até 64. Os caracteres aceitos são (0-9), (A-Z), (a-z), '+' e '/'. <br>
 A menor base possível é 2 (sistema binário) porque não seria possível uma base 1. <br>
 A maior base é 64 porque há um limite de caracteres reconhecidos como dígitos. <br>
@@ -11,10 +12,15 @@ A maior base é 64 porque há um limite de caracteres reconhecidos como dígitos
 # Desenvolvimento:
 Decidi usar como base o sistema Base64, que usa os caracteres (0-9), (A-Z), (a-z), '+' e '/', como mencionado acima. <br>
 Para converter de base X para base Y, é necessário primeiro converter base X para base 10 e depois base 10 para base Y. <br>
+Para a conversão de código morse, apenas separei cada letra do texto usei um sistema com switch-case para a conversão. <br>
+<br> <br>
+![image](https://www.researchgate.net/profile/Niu-Kai-2/publication/335156760/figure/fig1/AS:799235695968256@1567564047251/The-International-Morse-Code.png)
+
+Deixei dois arquivos de teste, um para testar as funções de conversão de bases e outro para o conversor de morse, ambos usando o IO padrão do haskell. <br>
 
 ## Para converter de base X para base 10, se usa a seguinte fórmula:
 ```soma(base ^ peso * dígito; do dígito menos significativo ao mais significativo)```
-<br> <br> <br>
+<br> <br>
 ![image](https://wikimedia.org/api/rest_v1/media/math/render/svg/ed875ba981decb322a05335f7efdb5490244d67f)
 
 ## Para converter de base 10 para base Y, se usa o método das divisões sucessivas, que se trata de:
