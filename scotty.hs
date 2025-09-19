@@ -6,9 +6,6 @@ import Network.Wai.Middleware.RequestLogger (logStdoutDev)
 import Data.Char (isDigit, isUpper, isLower, toUpper)
 import Data.List (intercalate)
 
-import Data.Text.Lazy (Text)
-import qualified Data.Text.Lazy as T
-
 -- converte um número para sua representação em caracter (base64).
 -- a base máxima é 64 porque (10 números + 26 letras maiúsculas + 26 letras minúsculas + 2 caracteres especiais = 64).
 -- fromEnum pega o código ASCII do char, e toEnum faz o contrário
