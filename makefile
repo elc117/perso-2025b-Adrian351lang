@@ -1,6 +1,6 @@
 NAME = morse
 
 default:
-	ghc -dynamic $(NAME).hs
+	ghc $(NAME).hs
 	./$(NAME)
 	rm $(NAME) $(NAME).hi $(NAME).o
