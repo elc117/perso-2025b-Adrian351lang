@@ -14,7 +14,7 @@ Decidi usar como base o sistema Base64, que usa os caracteres (0-9), (A-Z), (a-z
 Para converter de base X para base Y, é necessário primeiro converter base X para base 10 e depois base 10 para base Y. <br>
 Para a conversão de código morse, apenas separei cada letra do texto usei um sistema com switch-case para a conversão. <br>
 <br> <br>
-![image](https://www.researchgate.net/profile/Niu-Kai-2/publication/335156760/figure/fig1/AS:799235695968256@1567564047251/The-International-Morse-Code.png)
+![image](https://images.sampletemplates.com/wp-content/uploads/2015/05/12144219/Morse-Code-Chart-to-Download.jpg)
 
 Deixei dois arquivos de teste, um para testar as funções de conversão de bases e outro para o conversor de morse, ambos usando o IO padrão do haskell. <br>
 
