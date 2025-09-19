@@ -5,10 +5,14 @@ import Network.Wai.Middleware.RequestLogger (logStdoutDev)
 
 main :: IO ()
 main = scotty 3000 $ do
-  middleware logStdoutDev
+    middleware logStdoutDev
 
-  get "/bases" $ do
-    text "hello bases"
+    -- sessão de conversão de bases
+    -- acessar em http://localhost:3000/bases
+    get "/bases" $ do
+        text "hello bases"
 
-  get "/morse" $ do
-    text "hello morse"
+    -- sessão de conversão de morse
+    -- acessar em http://localhost:3000/morse
+    get "/morse" $ do
+        text "hello morse"
