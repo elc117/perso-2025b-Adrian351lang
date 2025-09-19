@@ -154,16 +154,9 @@ main = scotty 3000 $ do
     -- sessão de conversão de bases
     -- acessar em http://localhost:3000/bases
     get "/bases" $ do
-        text "."
+        text "bases"
 
     -- sessão de conversão de morse
     -- acessar em http://localhost:3000/morse
     get "/morse" $ do
-        text "."
-
-    get "/" $ do
-        html "<form action='/submit' method='post'><input name='userInput' type='text'><input type='submit'></form>"
-
-    post "/submit" $ do
-        userInput <- param "userInput" :: ActionM Text
-        html $ mconcat ["You entered: ", userInput]
+        text "morse"
