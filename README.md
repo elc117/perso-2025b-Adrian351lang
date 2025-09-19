@@ -33,8 +33,10 @@ Para a conversão de código morse, apenas separei cada letra do texto usei um s
 Deixei dois arquivos de teste, um para testar as funções de conversão de bases e outro para o conversor de morse, ambos usando o IO padrão do haskell. <br>
 O site em si está no arquivo scotty.hs, que abre em servidor na porta 3000. <br>
 Para executar, acessar os seguintes links:
-1. http://localhost:3000/morse/encode
-2. http://localhost:3000/morse/decode
+1. http://localhost:3000/
+2. http://localhost:3000/bases
+3. http://localhost:3000/morse/encode
+4. http://localhost:3000/morse/decode
 
 # Referências:
 1. https://en.wikipedia.org/wiki/Base64

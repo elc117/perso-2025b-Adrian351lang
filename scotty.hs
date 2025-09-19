@@ -147,6 +147,12 @@ textToMorse str = intercalate " " (map getMorse str)
 
 main :: IO ()
 main = scotty 3000 $ do
+    get "/" $ do
+        text "Página principal. Adicione no link '/bases', '/morse/encode' ou 'morse/decode'."
+
+    get "/bases" $ do
+        text "bases"
+
     get "/morse/encode" $ do
         html "<form action='/morse/encode/result' method='post'><input type='text' name='text' required><input type='submit' value='Converter texto para morse'></form>"
 
