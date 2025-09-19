@@ -1,7 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import Web.Scotty
-import Network.Wai.Middleware.RequestLogger (logStdoutDev)
+import Data.Text.Lazy (Text)
+import qualified Data.Text.Lazy as T
 
 import Data.Char (isDigit, isUpper, isLower, toUpper)
 import Data.List (intercalate)
@@ -146,14 +147,11 @@ textToMorse str = intercalate " " (map getMorse str)
 
 main :: IO ()
 main = scotty 3000 $ do
-    middleware logStdoutDev
+    get "/morse/encode" $ do
+        html "<form action='/morse/encode/result' method='post'><input type='text' name='text' required><input type='submit' value='Converter texto para morse'></form>"
 
-    -- sessão de conversão de bases
-    -- acessar em http://localhost:3000/bases
-    get "/bases" $ do
-        text "bases"
-
-    -- sessão de conversão de morse
-    -- acessar em http://localhost:3000/morse
-    get "/morse" $ do
-        text "morse"
+    post "/morse/encode/result" $ do
+        text <- formParam "text" :: ActionM Text
+        let originalText = T.unpack text
+        let morseText = textToMorse originalText
+        html $ T.pack $ "Texto original: " ++ originalText ++ "<br>Texto em morse: " ++ morseText
