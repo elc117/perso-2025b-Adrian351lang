@@ -1,9 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+-- para o scotty
 import Web.Scotty
+import Control.Monad.IO.Class (liftIO)
 import Data.Text.Lazy (Text)
 import qualified Data.Text.Lazy as T
 
+-- para as funções
 import Data.Char (isDigit, isUpper, isLower, toUpper)
 import Data.List (intercalate)
 
@@ -151,10 +154,22 @@ main = scotty 3000 $ do
         text "Página principal. Adicione no link '/bases', '/morse/encode' ou 'morse/decode'."
 
     get "/bases" $ do
-        html "<form action='/bases/result' method='post'><input type='text' name='text' required><input type='submit' value='Converter número'></form>"
+        html "<h1>Base Converter</h1><form action='/bases/result' method='post'>\
+             \Número a converter: <input type='text' name='input'><br/>\
+             \Base do número de entrada (2-64): <input type='number' name='inputBase' min='2' max='64'><br/>\
+             \Base do número de saída (2-64): <input type='number' name='outputBase' min='2' max='64'><br/>\
+             \<input type='submit' value='Convert'></form>"
 
     post "/bases/result" $ do
-        text "teste"
+        input <- formParam "input" :: ActionM Text
+        inputBase <- formParam "inputBase" :: ActionM Int
+        outputBase <- formParam "outputBase" :: ActionM Int
+
+        let decimal = baseToDecimal inputBase (T.unpack input)
+        let result = decimalToBase outputBase decimal
+
+        html $ T.pack $ "Valor original: " ++ T.unpack input ++ " (base " ++ show inputBase ++ ")<br/>" ++
+                        "Valor convertido: " ++ result ++ " (base " ++ show outputBase ++ ")"
 
     get "/morse/encode" $ do
         html "<form action='/morse/encode/result' method='post'><input type='text' name='text' required><input type='submit' value='Converter texto para morse'></form>"

@@ -38,6 +38,10 @@ Para executar, acessar os seguintes links:
 3. http://localhost:3000/morse/encode
 4. http://localhost:3000/morse/decode
 
+## Requisitos (baixar com o cabal):
+1. scotty
+2. text
+
 # Referências:
 1. https://en.wikipedia.org/wiki/Base64
 2. https://www.mathsisfun.com/numbers/bases.html
