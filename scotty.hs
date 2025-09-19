@@ -151,17 +151,22 @@ main :: IO ()
 main = scotty 3000 $ do
     middleware logStdoutDev
 
-    -- teste para input do usuário
-    post "/input" $ do
-        input <- param "userInput" :: ActionM Text
-        text $ T.append "You entered: " input
-
     -- sessão de conversão de bases
     -- acessar em http://localhost:3000/bases
     get "/bases" $ do
-        text "hello bases"
+        let input  = "FFFF"
+        let inputBase = 16
+        let outputBase = 10
+
+        let decimal = baseToDecimal inputBase input
+        let result = decimalToBase outputBase decimal
+
+        text $ T.append "Valor original: " input
+        text $ T.append "Valor convertido: " result
 
     -- sessão de conversão de morse
     -- acessar em http://localhost:3000/morse
     get "/morse" $ do
-        text "hello morse"
+        let morse = ". . / .-. ."
+        text $ T.append "Morse original: " morse
+        text $ T.append "Morse decodificado: " (morseToText morse)
