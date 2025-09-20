@@ -56,6 +56,13 @@ Suporta números até 3999. <br>
 Os números romanos funcionam da seguinte forma: <br><br>
 ![image](https://media.geeksforgeeks.org/wp-content/uploads/20230711104223/Roman-numerals.webp)
 
+## Cifra de Vigenère:
+Esta cifra é um método de criptografia que recebe um texto e uma chave, e criptografa o texto usando aquela chave. <br>
+É similar à cifra de César, mas aqui cada letra recebe um deslocamento diferente, de acordo com a chave. <br>
+Primeiro, a chave é estendida para o mesmo tamanho do texto, e então o código de cada letra do texto e somada com o código de cada letra da chave. <br>
+Abaixo está a tabela com as combinações de letras: <br> <br>
+![image](https://www.thecrazyprogrammer.com/wp-content/uploads/2017/08/Vigenere-Cipher-Table.png)
+
 # Desenvolvimento:
 A criação das funções de conversão em si não foi difícil, apenas precisei aprender algumas funções novas, como "intercalate", "fromEnum" e funções recursivas. <br>
 A parte mais trabalhosa foi a criação da interface com o framework scotty, já que é complexo conseguir o input do usuário usando-o.
