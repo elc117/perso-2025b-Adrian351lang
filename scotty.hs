@@ -2,7 +2,6 @@
 
 -- para o scotty
 import Web.Scotty
-import Control.Monad.IO.Class (liftIO)
 import Data.Text.Lazy (Text)
 import qualified Data.Text.Lazy as T
 
