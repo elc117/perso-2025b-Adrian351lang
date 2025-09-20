@@ -10,6 +10,7 @@ import BaseConvert
 import MorseFuncs
 import Caesar
 import Romans
+import Vigenere
 
 main :: IO ()
 main = scotty 3000 $ do
@@ -21,7 +22,10 @@ main = scotty 3000 $ do
              \<br>3. <a href=\"morse/decode\">Decodificador de código morse</a> 📶<br>\
              \<br>4. <a href=\"caesar\">Criptografia com cifra de César</a> 🔣<br>\
              \<br>5. <a href=\"romans/to\">Converter número de decimal para romanos</a> 🇻🇦<br>\
-             \<br>6. <a href=\"romans/from\">Converter número de romanos para decimal</a> 🇻🇦<br>"
+             \<br>6. <a href=\"romans/from\">Converter número de romanos para decimal</a> 🇻🇦<br>\
+             \<br>7. <a href=\"vigenere/encode\">Codificador de Vigenère</a> 🔐<br>\
+             \<br>8. <a href=\"vigenere/decode\">Decodificador de Vigenère</a> 🔐<br>\
+             \<br><h3>Desenvolvido por Adrian351lang - 2025</h3>"
 
     get "/bases" $ do
         html "<h1>Conversor de Bases 🔟</h1>\
@@ -127,3 +131,41 @@ main = scotty 3000 $ do
         let romanStr = T.unpack roman
         let intNum = fromRoman romanStr
         html $ T.pack $ "<h3>Número em romanos: </h3>" ++ romanStr ++ "<h3>Número em inteiro: </h3>" ++ show intNum ++ "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
+
+    get "/vigenere/encode" $ do
+        html "<h1>Codificador de Vigenère 🔐</h1>\
+             \<h3 color=\"red\">nota: somente letras serão alteradas</h3>\
+             \<form action='/vigenere/encode/result' method='post'>\
+             \Texto a codificar (somente letras):<br><input type='text' name='text' required><br/><br/>\
+             \Chave (somente letras):<br><input type='text' name='key' required><br/><br/>\
+             \<input type='submit' value='converter'>\
+             \</form>\
+             \<img src=\"https://www.thecrazyprogrammer.com/wp-content/uploads/2017/08/Vigenere-Cipher-Table.png\" alt=\"image\" width=256px><br>\
+             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+
+    post "/vigenere/encode/result" $ do
+        text <- formParam "text" :: ActionM Text
+        key <- formParam "key" :: ActionM Text
+        let originalText = T.unpack text
+        let keyText = T.unpack key
+        let vigenereText = toVigenere originalText keyText
+        html $ T.pack $ "<h3>Texto original: </h3>" ++ originalText ++ "<h3>Texto codificado: </h3>" ++ vigenereText ++ " (chave: " ++ keyText ++ ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
+
+    get "/vigenere/decode" $ do
+        html "<h1>Decodificador de Vigenère 🔐</h1>\
+             \<h3 color=\"red\">nota: somente letras serão alteradas</h3>\
+             \<form action='/vigenere/decode/result' method='post'>\
+             \Texto a decodificar (somente letras):<br><input type='text' name='text' required><br/><br/>\
+             \Chave (somente letras):<br><input type='text' name='key' required><br/><br/>\
+             \<input type='submit' value='converter'>\
+             \</form>\
+             \<img src=\"https://www.thecrazyprogrammer.com/wp-content/uploads/2017/08/Vigenere-Cipher-Table.png\" alt=\"image\" width=256px><br>\
+             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+
+    post "/vigenere/decode/result" $ do
+        text <- formParam "text" :: ActionM Text
+        key <- formParam "key" :: ActionM Text
+        let cipherText = T.unpack text
+        let keyText = T.unpack key
+        let decodedText = fromVigenere cipherText keyText
+        html $ T.pack $ "<h3>Texto codificado: </h3>" ++ cipherText ++ "<h3>Texto decodificado: </h3>" ++ decodedText ++ " (chave: " ++ keyText ++ ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
