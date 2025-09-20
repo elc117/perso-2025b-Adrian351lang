@@ -9,6 +9,7 @@ import qualified Data.Text.Lazy as T
 -- módulos locais
 import BaseConvert
 import MorseFuncs
+import Caesar
 
 main :: IO ()
 main = scotty 3000 $ do
@@ -17,7 +18,8 @@ main = scotty 3000 $ do
              \<h2>Ferramentas disponíveis:</h2>\
              \<a href=\"bases\">Conversor de bases numéricas</a><br>\
              \<br><a href=\"morse/encode\">Codificador de código morse</a><br>\
-             \<br><a href=\"morse/decode\">Decodificador de código morse</a><br>"
+             \<br><a href=\"morse/decode\">Decodificador de código morse</a><br>\
+             \<br><a href=\"caesar\">Criptografia com cifra de César</a><br>"
 
     get "/bases" $ do
         html "<h1>Conversor de Bases</h1>\
@@ -70,3 +72,19 @@ main = scotty 3000 $ do
         let morseText = T.unpack text
         let decodedText = morseToText morseText
         html $ T.pack $ "<h3>Morse: </h3>" ++ morseText ++ "<h3>Texto decodificado: </h3>" ++ decodedText ++ "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
+
+    get "/caesar" $ do
+        html "<h1>Cifra de César</h1>\
+             \<form action='/caesar/result' method='post'>\
+             \Texto a criptografar (somente letras):<br><input type='text' name='text' required><br/>\
+             \Número de deslocamento (positivo para criptografar, negativo para descriptografar):<br><input type='number' name='shift' required><br/>\
+             \<input type='submit' value='converter'>\
+             \</form>\
+             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+    
+    post "/caesar/result" $ do
+        text <- formParam "text" :: ActionM Text
+        shift <- formParam "shift" :: ActionM Int
+        let originalText = T.unpack text
+        let caesarText = caesar originalText shift
+        html $ T.pack $ "<h3>Texto original: </h3>" ++ originalText ++ "<h3>Texto criptografado: </h3>" ++ caesarText ++ " (deslocamento: " ++ (show shift) ++ ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"

@@ -1,6 +1,6 @@
 module Caesar where
 
-import Data.Char (toUpper, isAlpha, isUpper, isLower)
+import Data.Char (isAlpha, isUpper, isLower)
 
 -- função auxiliar para pegar a posição da letra no alfabeto (A=0, B=1, ..., Z=25)
 letterPos :: Char -> Int
