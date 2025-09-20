@@ -10,6 +10,7 @@ import qualified Data.Text.Lazy as T
 import BaseConvert
 import MorseFuncs
 import Caesar
+import Romans
 
 main :: IO ()
 main = scotty 3000 $ do
@@ -19,7 +20,8 @@ main = scotty 3000 $ do
              \<a href=\"bases\">Conversor de bases numéricas</a><br>\
              \<br><a href=\"morse/encode\">Codificador de código morse</a><br>\
              \<br><a href=\"morse/decode\">Decodificador de código morse</a><br>\
-             \<br><a href=\"caesar\">Criptografia com cifra de César</a><br>"
+             \<br><a href=\"caesar\">Criptografia com cifra de César</a><br>\
+             \<br><a href=\"romans\">Conversor para números romanos</a><br>"
 
     get "/bases" $ do
         html "<h1>Conversor de Bases</h1>\
@@ -88,3 +90,16 @@ main = scotty 3000 $ do
         let originalText = T.unpack text
         let caesarText = caesar originalText shift
         html $ T.pack $ "<h3>Texto original: </h3>" ++ originalText ++ "<h3>Texto criptografado: </h3>" ++ caesarText ++ " (deslocamento: " ++ (show shift) ++ ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
+
+    get "/romans" $ do
+        html "<h1>Conversor para Números Romanos</h1>\
+             \<form action='/romans/result' method='post'>\
+             \Número inteiro a converter (máximo 3999): <input type='number' name='num' min='1' max='3999' required><br/>\
+             \<input type='submit' value='converter'>\
+             \</form>\
+             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+
+    post "/romans/result" $ do
+        num <- formParam "num" :: ActionM Int
+        let romanNum = toRoman num
+        html $ T.pack $ "<h3>Número original: </h3>" ++ show num ++ "<h3>Número em romanos: </h3>" ++ romanNum ++ "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
