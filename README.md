@@ -10,7 +10,9 @@ Até agora foram inplementadas as seguintes funcionalidades: <br>
 3. Decoficação de código morse.
 4. Criptografia com cifra de césar.
 5. Converter decimal para romanos.
-6. Converter romanos para decimal.
+6. Converter romanos para decimal. (W.I.P.)
+7. Codificar texto com cifra de Vigenère.
+8. Decodificar texto com cifra de Vigenère.
 
 ## Conversor de Bases:
 O conversor de bases suporta números nas bases 2 até 64. <br>
@@ -61,7 +63,8 @@ A parte mais trabalhosa foi a criação da interface com o framework scotty, já
 # Execução:
 Criei dos arquivos de módulo, um com as funções relacionadas à conversão de bases e outro com as funções relacionadas a morse. <br>
 Deixei um arquivo de teste que usa o IO padrão do haskell. <br>
-O site em si está no arquivo scotty.hs, que abre em servidor na porta 3000. <br>
+O site em si está no arquivo "scotty.hs", que abre em servidor na porta 3000. <br>
+O makefile que está no projeto já tem os comandos para compilar os testes e o site. <br>
 
 ## Endereço:
 Se executado com o ghc na própria máquina, o link deve ser: <br>
@@ -92,3 +95,10 @@ TODO
 15. https://kevin-da-silva.medium.com/one-problem-five-solutions-zip-function-ad1ed3bd1f16
 16. https://www.geeksforgeeks.org/dsa/roman-number-to-integer/
 17. https://zvon.org/other/haskell/Outputlist/group_f.html
+18. https://www.geeksforgeeks.org/dsa/vigenere-cipher/
+19. https://www.instructables.com/Best-Codes/
+20. https://www.quora.com/What-is-the-best-alternative-for-Morse-code
+21. https://www.exploratorium.edu/explore/secret-language
+22. https://zvon.org/other/haskell/Outputprelude/cycle_f.html
+23. https://zvon.org/other/haskell/Outputprelude/length_f.html
+24. https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher

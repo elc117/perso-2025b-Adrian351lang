@@ -2,9 +2,24 @@ import BaseConvert
 import MorseFuncs
 import Caesar
 import Romans
+import Vigenere
 
 main :: IO()
 main = do
+    putStrLn "Digite o texto a decodificar com a cifra de Vigenère (somente letras serão alteradas):"
+    codedText <- getLine
+    putStrLn "Digite a chave (somente letras):"
+    key <- getLine
+    putStrLn $ "Texto original: " ++ codedText
+    putStrLn $ "Texto decodificado com Vigenère: " ++ (fromVigenere codedText key) ++ "\nchave: " ++ key
+
+    putStrLn "Digite o texto a codificar com a cifra de Vigenère (somente letras serão alteradas):"
+    rawText <- getLine
+    putStrLn "Digite a chave (somente letras):"
+    key <- getLine
+    putStrLn $ "Texto original: " ++ rawText
+    putStrLn $ "Texto criptografado com Vigenère: " ++ (toVigenere rawText key) ++ "\nchave: " ++ key
+
     putStrLn "Digite o número inteiro a converter para numeral romano (máximo 3999):"
     num <- readLn
     putStrLn $ "Número original: " ++ (show num)
