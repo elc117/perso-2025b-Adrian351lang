@@ -1,3 +1,5 @@
+module MorseFuncs where
+
 import Data.Char (toUpper)
 import Data.List (intercalate)
 
@@ -94,15 +96,3 @@ morseToText str = map morseParse (words str)
 -- o inverso da de cima
 textToMorse :: String -> String
 textToMorse str = intercalate " " (map getMorse str)
-
-main :: IO()
-main = do
-    putStrLn "Digite o texto em morse (separar letras por espaços simples e palavras por barras):"
-    morse <- getLine
-    putStrLn $ "Morse original: " ++ morse
-    putStrLn $ "Morse decodificado: " ++ (morseToText morse)
-
-    putStrLn "Digite o texto a converter para morse:"
-    text <- getLine
-    putStrLn $ "Texto original: " ++ text
-    putStrLn $ "Texto em morse: " ++ (textToMorse text)

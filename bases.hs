@@ -1,3 +1,5 @@
+module BaseConvert where
+
 import Data.Char (isDigit, isUpper, isLower)
 
 -- converte um número para sua representação em caracter (base64).
@@ -43,18 +45,3 @@ decimalToBase base n = reverse (convert n)       -- inverte o resultado para fic
         convert 0 = ""                           -- caso base para recursão
         convert x = let (q, r) = x `divMod` base -- divide e pega quociente e resto
                     in intToBase64 r : convert q -- converte o resto para dígito e recursa com o quociente
-
-main :: IO()
-main = do
-    putStrLn "Digite o número a converter (caracteres válidos: (0-9), (A-Z), (a-z), '+', '/'):"
-    input <- getLine
-    putStrLn "Digite a base do número de entrada (2-64):"
-    inputBase <- readLn
-    putStrLn "Digite a base do número de saída (2-64):"
-    outputBase <- readLn
-
-    let decimal = baseToDecimal inputBase input
-    let result = decimalToBase outputBase decimal
-
-    putStrLn $ "Valor original: " ++ input ++ " (base " ++ (show inputBase) ++ ")"
-    putStrLn $ "Valor convertido: " ++ result ++ " (base " ++ (show outputBase) ++ ")"
