@@ -10,7 +10,11 @@ main = do
     putStrLn $ "Número original: " ++ (show num)
     putStrLn $ "Número em romano: " ++ (toRoman num)
 
-    putStrLn "Digite o texto a criptografar com a cifra de césar (somente letras):"
+    putStrLn "Digite o número em romanos a converter para inteiro: (letras maiúsculas)"
+    roman <- getLine
+    putStrLn $ "Número em inteiro: " ++ (show $ fromRoman roman)
+
+    putStrLn "Digite o texto a criptografar com a cifra de césar (somente letras serão alteradas):"
     raw <- getLine
     putStrLn "Digite o número de deslocamento (positivo para criptografar, negativo para descriptografar):"
     shift <- readLn

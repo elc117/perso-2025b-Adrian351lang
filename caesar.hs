@@ -7,7 +7,7 @@ letterPos :: Char -> Int
 letterPos c
     | isUpper c = fromEnum c - fromEnum 'A'
     | isLower c = fromEnum c - fromEnum 'a'
-    | otherwise = error "não é letra"
+    | otherwise = error "caractere inválido, apenas letras alfabéticas são suportadas"
 
 -- busca a letra correspondente à posição no alfabeto (0=A, 1=B, ..., 25=Z)
 letterIn :: Int -> Char
@@ -19,8 +19,8 @@ letterIn i
 -- fórmula: nova_posicao = (posicao_atual + deslocamento) % 26
 caesarShift :: Char -> Int -> Char
 caesarShift c shift
-    | isAlpha c = letterIn ((letterPos c + shift) `mod` 26)
-    | otherwise = error "caractere inválido, apenas letras alfabéticas são suportadas"
+    | isAlpha c = letterIn ((letterPos c + shift) `mod` 26) -- se é uma letra, aplica o deslocamento
+    | otherwise = c                                         -- senão, mantém caracteres não alfabéticos inalterados
 
 caesar :: String -> Int -> String
 caesar str shift = map (\c -> caesarShift c shift) str

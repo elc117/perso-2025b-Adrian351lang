@@ -1,5 +1,8 @@
 module Romans where
 
+import Data.Char (toUpper)
+import Data.List (group)
+
 -- converte os milhares
 thousandToRoman:: Int -> String
 thousandToRoman d
@@ -63,3 +66,47 @@ toRoman num
         hundreds  = num `mod` 1000 `div` 100
         tens      = num `mod` 100 `div` 10
         units     = num `mod` 10
+
+-- converte um caractere romano para um numero inteiro
+romanCharToInt:: Char -> Int
+romanCharToInt c
+    | c == 'I' = 1
+    | c == 'V' = 5
+    | c == 'X' = 10
+    | c == 'L' = 50
+    | c == 'C' = 100
+    | c == 'D' = 500
+    | c == 'M' = 1000
+    | otherwise = error "caractere inválido"
+
+-- verifica se deve somar ou subtrair o valor do caractere romano
+fromRomanChar:: Char -> Char -> Int
+fromRomanChar c next
+    | cup == 'I' && (next == 'V' || next == 'X') = -1   -- caso especial de subtração, ex: IV = 4, IX = 9
+    | cup == 'X' && (next == 'L' || next == 'C') = -10
+    | cup == 'C' && (next == 'D' || next == 'M') = -100
+    | otherwise = romanCharToInt cup
+
+    where
+        cup = toUpper c
+
+-- verifica se todos os caracteres são letras romanas válidas
+isValidRomanLetters :: String -> Bool
+isValidRomanLetters str = all (`elem` "IVXLCDM") (map toUpper str)
+
+-- verifica se há mais de 3 letras iguais consecutivas
+noLetterOverrepetition :: String -> Bool
+noLetterOverrepetition str = not $ any (>= 4) (map length (group (map toUpper str)))
+-- a função group agrupa letras iguais consecutivas, exemplo: "XXIIX" -> ["XX","II","X"]
+-- e então map length conta o tamanho de cada grupo, exemplo: ["XX","II","X"] -> [2,2,1]
+-- por fim, any (>= 4) verifica se há algum grupo com 4 ou mais letras iguais consecutivas
+
+-- converte uma string de numeral romano para um número inteiro
+fromRoman :: String -> Int
+fromRoman str
+    | not (isValidRomanLetters str) = error "o número digitado ontém letras não romanas"
+    | not (noLetterOverrepetition str) = error "o número digitado possui mais de 3 letras iguais consecutivas"
+    | otherwise = sum (map (\(c, next) -> fromRomanChar c next) pairs)
+
+    where
+        pairs = zip str (tail str ++ " ") -- emparelha cada caractere com o próximo. exemplo: "XIV" -> [('X','I'),('I','V'),('V',' ')]

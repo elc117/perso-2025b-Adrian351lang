@@ -20,7 +20,8 @@ main = scotty 3000 $ do
              \<br>2. <a href=\"morse/encode\">Codificador de código morse</a> 📶<br>\
              \<br>3. <a href=\"morse/decode\">Decodificador de código morse</a> 📶<br>\
              \<br>4. <a href=\"caesar\">Criptografia com cifra de César</a> 🔣<br>\
-             \<br>5. <a href=\"romans\">Conversor para números romanos</a> 🇻🇦"
+             \<br>5. <a href=\"romans/to\">Converter número de decimal para romanos</a> 🇻🇦<br>\
+             \<br>6. <a href=\"romans/from\">Converter número de romanos para decimal</a> 🇻🇦<br>"
 
     get "/bases" $ do
         html "<h1>Conversor de Bases 🔟</h1>\
@@ -80,7 +81,7 @@ main = scotty 3000 $ do
 
     get "/caesar" $ do
         html "<h1>Criptografia com cifra de César 🔣</h1>\
-             \<h3 color=\"red\">nota: somente letras e sem espaços</h3>\
+             \<h3 color=\"red\">nota: somente letras serão alteradas</h3>\
              \<form action='/caesar/result' method='post'>\
              \Texto a criptografar (somente letras):<br><input type='text' name='text' required><br/><br/>\
              \Número de deslocamento (positivo para criptografar, negativo para descriptografar):<br><input type='number' name='shift' required><br/><br/>\
@@ -97,16 +98,32 @@ main = scotty 3000 $ do
         let caesarText = caesar originalText shift
         html $ T.pack $ "<h3>Texto original: </h3>" ++ originalText ++ "<h3>Texto criptografado: </h3>" ++ caesarText ++ " (deslocamento: " ++ (show shift) ++ ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
-    get "/romans" $ do
+    get "/romans/to" $ do
         html "<h1>Conversor para Números Romanos 🇻🇦</h1>\
-             \<form action='/romans/result' method='post'>\
+             \<form action='/romans/to/result' method='post'>\
              \Número inteiro a converter (máximo 3999): <input type='number' name='num' min='1' max='3999' required><br/>\
              \<input type='submit' value='converter'>\
              \</form>\
              \<img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Year_1575_in_Arabic_and_Roman_numbers.jpg/250px-Year_1575_in_Arabic_and_Roman_numbers.jpg\" alt=\"image\" width=512px><br>\
              \<br><a href=\"/\">Voltar para a página principal</a><br>"
 
-    post "/romans/result" $ do
+    post "/romans/to/result" $ do
         num <- formParam "num" :: ActionM Int
         let romanNum = toRoman num
         html $ T.pack $ "<h3>Número original: </h3>" ++ show num ++ "<h3>Número em romanos: </h3>" ++ romanNum ++ "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
+    
+    get "/romans/from" $ do
+        html "<h1>Conversor de Números Romanos 🇻🇦</h1>\
+             \<h3 color=\"red\">nota: apenas letras romanas (MDCLXVI)</h3>\
+             \<form action='/romans/from/result' method='post'>\
+             \Número em romanos a converter: <input type='text' name='roman' required><br/>\
+             \<input type='submit' value='converter'>\
+             \</form>\
+             \<img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20230711104223/Roman-numerals.webp\" alt=\"image\" width=256px><br>\
+             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+    
+    post "/romans/from/result" $ do
+        roman <- formParam "roman" :: ActionM Text
+        let romanStr = T.unpack roman
+        let intNum = fromRoman romanStr
+        html $ T.pack $ "<h3>Número em romanos: </h3>" ++ romanStr ++ "<h3>Número em inteiro: </h3>" ++ show intNum ++ "<br><br><a href=\"/\">Voltar para a página principal</a><br>"

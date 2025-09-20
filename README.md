@@ -9,14 +9,15 @@ Até agora foram inplementadas as seguintes funcionalidades: <br>
 2. Coficação de código morse.
 3. Decoficação de código morse.
 4. Criptografia com cifra de césar.
-5. Converter número para romanos.
+5. Converter decimal para romanos.
+6. Converter romanos para decimal.
 
 ## Conversor de Bases:
 O conversor de bases suporta números nas bases 2 até 64. <br>
 A menor base possível é 2 (sistema binário) porque não seria possível uma base 1. <br>
 A maior base é 64 porque há um limite de caracteres reconhecidos como dígitos. <br>
 Por enquanto, não há suporte para números com vírgula. <br>
-Decidi usar como base o sistema Base64, que usa os caracteres (0-9), (A-Z), (a-z), '+' e '/', como mencionado acima. <br>
+Decidi usar como base uma versão modificada do sistema Base64, que usa os caracteres (0-9), (A-Z), (a-z), '+' e '/'. <br>
 Para converter de base X para base Y, é necessário primeiro converter base X para base 10 e depois base 10 para base Y. <br>
 
 ### 1. Converter de base X para base 10:
@@ -88,3 +89,6 @@ TODO
 12. https://en.wikibooks.org/wiki/Haskell/Recursion
 13. https://www.geeksforgeeks.org/maths/roman-numerals/
 14. https://en.wikipedia.org/wiki/Morse_code
+15. https://kevin-da-silva.medium.com/one-problem-five-solutions-zip-function-ad1ed3bd1f16
+16. https://www.geeksforgeeks.org/dsa/roman-number-to-integer/
+17. https://zvon.org/other/haskell/Outputlist/group_f.html
