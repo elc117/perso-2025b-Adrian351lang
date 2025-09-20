@@ -1,8 +1,8 @@
-# Identificação:
+# Identificação 🪪:
 Nome: Adrian Bellé Secretti <br>
 Curso: Sistemas de Informação
 
-# Tema:
+# Tema 📄:
 Este projeto se trata de um sistema de conversão e codificação de sistemas númericos, de criptografia e códigos. <br>
 Até agora foram inplementadas as seguintes funcionalidades: <br>
 1. Conversor de bases numéricas.
@@ -63,11 +63,11 @@ Primeiro, a chave é estendida para o mesmo tamanho do texto, e então o código
 Abaixo está a tabela com as combinações de letras: <br> <br>
 ![image](https://www.thecrazyprogrammer.com/wp-content/uploads/2017/08/Vigenere-Cipher-Table.png)
 
-# Desenvolvimento:
+# Desenvolvimento 🛠️:
 A criação das funções de conversão em si não foi difícil, apenas precisei aprender algumas funções novas, como "intercalate", "fromEnum" e funções recursivas. <br>
 A parte mais trabalhosa foi a criação da interface com o framework scotty, já que é complexo conseguir o input do usuário usando-o.
 
-# Execução:
+# Execução 🖥️:
 Criei dos arquivos de módulo, um com as funções relacionadas à conversão de bases e outro com as funções relacionadas a morse. <br>
 Deixei um arquivo de teste que usa o IO padrão do haskell. <br>
 O site em si está no arquivo "scotty.hs", que abre em servidor na porta 3000. <br>
@@ -81,10 +81,10 @@ http://localhost:3000
 1. scotty
 2. text
 
-# Resultado:
+# Resultado 📊:
 TODO
 
-# Referências:
+# Referências 📜:
 1. WIKIPEDIA CONTRIBUTORS. Base64. Disponível em: <https://en.wikipedia.org/wiki/Base64>.
 2. Number Bases. Disponível em: <https://www.mathsisfun.com/numbers/bases.html>.
 3. GEEKSFORGEEKS. Number System and Base Conversions. Disponível em: <https://www.geeksforgeeks.org/digital-logic/number-system-and-base-conversions/>.
