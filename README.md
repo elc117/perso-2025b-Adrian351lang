@@ -80,3 +80,6 @@ TODO
 7. https://www.britannica.com/topic/International-Morse-Code
 8. https://en.wikipedia.org/wiki/Caesar_cipher
 9. https://www.geeksforgeeks.org/ethical-hacking/caesar-cipher-in-cryptography/
+10. https://www.britannica.com/topic/Roman-numeral
+11. https://www.rapidtables.com/math/symbols/roman_numerals.html
+12. https://en.wikibooks.org/wiki/Haskell/Recursion
