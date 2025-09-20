@@ -68,7 +68,7 @@ A criação das funções de conversão em si não foi difícil, apenas precisei
 A parte mais trabalhosa foi a criação da interface com o framework scotty, já que é complexo conseguir o input do usuário usando-o.
 
 # Execução 🖥️:
-Criei dos arquivos de módulo, um com as funções relacionadas à conversão de bases e outro com as funções relacionadas a morse. <br>
+Criei vários arquivos de módulo com as funções, compilar todos juntos. <br>
 Deixei um arquivo de teste que usa o IO padrão do haskell. <br>
 O site em si está no arquivo "scotty.hs", que abre em servidor na porta 3000. <br>
 O makefile que está no projeto já tem os comandos para compilar os testes e o site. <br>
