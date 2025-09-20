@@ -134,7 +134,8 @@ main = scotty 3000 $ do
 
     get "/vigenere/encode" $ do
         html "<h1>Codificador de Vigenère 🔐</h1>\
-             \<h3 color=\"red\">nota: somente letras serão alteradas</h3>\
+             \<h3 color=\"red\">nota 1: somente letras serão alteradas</h3>\
+             \<h3 color=\"red\">nota 2: NÃO coloque acentos</h3>\
              \<form action='/vigenere/encode/result' method='post'>\
              \Texto a codificar (somente letras):<br><input type='text' name='text' required><br/><br/>\
              \Chave (somente letras):<br><input type='text' name='key' required><br/><br/>\
