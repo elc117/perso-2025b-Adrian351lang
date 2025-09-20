@@ -4,9 +4,9 @@ import Caesar
 
 main :: IO()
 main = do
-    putStrLn "Digite o texto a criptografar com a cifra de césar (somente letras e espaços):"
+    putStrLn "Digite o texto a criptografar com a cifra de césar (somente letras):"
     raw <- getLine
-    putStrLn "Digite o número de deslocamento (positivo para direita, negativo para esquerda):"
+    putStrLn "Digite o número de deslocamento (positivo para criptografar, negativo para descriptografar):"
     shift <- readLn
     putStrLn $ "Texto original: " ++ raw
     putStrLn $ "Texto criptografado: " ++ (caesar raw shift) ++ ", deslocamento: " ++ (show shift)

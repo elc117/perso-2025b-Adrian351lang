@@ -44,6 +44,8 @@ A codificação de César recebe um conjunto de letras e um número de deslocame
 Texto original: ATTACKATONCE <br>
 Deslocamento: 4 <br>
 Texto criptografado: EXXEGOEXSRGI <br>
+A fórmula em pseudocódigo é a seguinte: <br>
+Caesar (palavra, deslocamento) = letra_na_posicao((posicao(letra) + deslocamento) % 26); para toda letra em palavra <br>
 <br><br>
 ![image](https://media.geeksforgeeks.org/wp-content/uploads/ceaserCipher.png)
 
