@@ -85,27 +85,28 @@ http://localhost:3000
 TODO
 
 # Referências:
-1. https://en.wikipedia.org/wiki/Base64
-2. https://www.mathsisfun.com/numbers/bases.html
-3. https://www.geeksforgeeks.org/digital-logic/number-system-and-base-conversions/
-4. https://en.wikipedia.org/wiki/Numeral_system
-5. https://math.ucr.edu/~jbritton/BaseConversionGuide.pdf
-6. https://stackoverflow.com/questions/3261236/how-to-get-the-ascii-value-of-a-character-in-haskell
-7. https://www.britannica.com/topic/International-Morse-Code
-8. https://en.wikipedia.org/wiki/Caesar_cipher
-9. https://www.geeksforgeeks.org/ethical-hacking/caesar-cipher-in-cryptography/
-10. https://www.britannica.com/topic/Roman-numeral
-11. https://www.rapidtables.com/math/symbols/roman_numerals.html
-12. https://en.wikibooks.org/wiki/Haskell/Recursion
-13. https://www.geeksforgeeks.org/maths/roman-numerals/
-14. https://en.wikipedia.org/wiki/Morse_code
-15. https://kevin-da-silva.medium.com/one-problem-five-solutions-zip-function-ad1ed3bd1f16
-16. https://www.geeksforgeeks.org/dsa/roman-number-to-integer/
-17. https://zvon.org/other/haskell/Outputlist/group_f.html
-18. https://www.geeksforgeeks.org/dsa/vigenere-cipher/
-19. https://www.instructables.com/Best-Codes/
-20. https://www.quora.com/What-is-the-best-alternative-for-Morse-code
-21. https://www.exploratorium.edu/explore/secret-language
-22. https://zvon.org/other/haskell/Outputprelude/cycle_f.html
-23. https://zvon.org/other/haskell/Outputprelude/length_f.html
-24. https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
+1. WIKIPEDIA CONTRIBUTORS. Base64. Disponível em: <https://en.wikipedia.org/wiki/Base64>.
+2. Number Bases. Disponível em: <https://www.mathsisfun.com/numbers/bases.html>.
+3. GEEKSFORGEEKS. Number System and Base Conversions. Disponível em: <https://www.geeksforgeeks.org/digital-logic/number-system-and-base-conversions/>.
+4. Numeral system. Disponível em: <https://en.wikipedia.org/wiki/Numeral_system>.
+5. Base Conversion Guide UCR · Math 135A Decimal Binary Octal Hexidecimal (Base 10) (Base 2) (Base 8) (Base 16). [s.l: s.n.]. Disponível em: <https://math.ucr.edu/~jbritton/BaseConversionGuide.pdf>.
+6. CHRIS. How to get the ASCII value of a character in Haskell? Disponível em: <https://stackoverflow.com/questions/3261236/how-to-get-the-ascii-value-of-a-character-in-haskell>.
+7. International Morse Code | communications. Disponível em: <https://www.britannica.com/topic/International-Morse-Code>.
+8. WIKIPEDIA CONTRIBUTORS. Caesar cipher. Disponível em: <https://en.wikipedia.org/wiki/Caesar_cipher>.
+9. GEEKSFORGEEKS. Caesar Cipher in Cryptography. Disponível em: <https://www.geeksforgeeks.org/ethical-hacking/caesar-cipher-in-cryptography/>.
+10. THE EDITORS OF ENCYCLOPAEDIA BRITANNICA. Roman Numeral | Chart & Facts, 2019. Disponível em: <https://www.britannica.com/topic/Roman-numeral>.
+11. Roman numerals chart. Disponível em: <https://www.rapidtables.com/math/symbols/roman_numerals.html>.
+12. Haskell/Recursion - Wikibooks, open books for an open world. Disponível em: <https://en.wikibooks.org/wiki/Haskell/Recursion>.
+13. GEEKSFORGEEKS. Roman Numerals 1 to 100 | Roman Numbers Chart, Rules & Examples. Disponível em: <https://www.geeksforgeeks.org/maths/roman-numerals/>.
+14. WIKIPEDIA CONTRIBUTORS. Morse code. Disponível em: <https://en.wikipedia.org/wiki/Morse_code>.
+15. SILVA, K. D. One problem five solutions — Zip Function. Disponível em: <https://kevin-da-silva.medium.com/one-problem-five-solutions-zip-function-ad1ed3bd1f16>.
+16. GEEKSFORGEEKS. Roman to Integer Conversion. Disponível em: <https://www.geeksforgeeks.org/dsa/roman-number-to-integer/>.
+17. Haskell : group. Disponível em: <https://zvon.org/other/haskell/Outputlist/group_f.html>.
+18. GEEKSFORGEEKS. Vigenere Cipher. Disponível em: <https://www.geeksforgeeks.org/dsa/vigenere-cipher/>.
+19. INSTRUCTABLES. Best Codes. Disponível em: <https://www.instructables.com/Best-Codes/>.
+20. What is the best alternative for Morse code? Disponível em: <https://www.quora.com/What-is-the-best-alternative-for-Morse-code>.
+21. Secret Language: Cryptography & Secret Codes | Exploratorium. Disponível em: <https://www.exploratorium.edu/explore/secret-language>.
+22. Haskell : cycle. Disponível em: <https://zvon.org/other/haskell/Outputprelude/cycle_f.html>.
+23. Haskell : length. Disponível em: <https://zvon.org/other/haskell/Outputprelude/length_f.html>.
+24. WIKIPEDIA CONTRIBUTORS. Vigenère cipher. Disponível em: <https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher>.
+25. ELIAS, D. Gerador de Referências ABNT [Atualizado para 2021]. Disponível em: <https://www.mybib.com/pt/ferramentas/gerador-referencias-abnt>.
