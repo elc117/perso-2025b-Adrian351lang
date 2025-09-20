@@ -1,4 +1,4 @@
-MODULES = bases.hs morse.hs
+MODULES = bases.hs morse.hs caesar.hs
 TEST_FILE = testes
 RUN_FILE = scotty
 

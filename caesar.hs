@@ -1,3 +1,5 @@
+module Caesar where
+
 import Data.Char (toLower, isAlpha)
 
 -- desloca a letra se for alfabética, senão dá erro
@@ -21,12 +23,3 @@ caesarShift c shift
 
 caesar :: String -> Int -> String
 caesar str shift = map (\c -> caesarShift c shift) str
-
-main :: IO()
-main = do
-    putStrLn "Digite o texto a criptografar com a cifra de césar (somente letras e espaços):"
-    raw <- getLine
-    putStrLn "Digite o número de deslocamento (positivo para direita, negativo para esquerda):"
-    shift <- readLn
-    putStrLn $ "Texto original: " ++ raw
-    putStrLn $ "Texto criptografado: " ++ (caesar raw shift) ++ ", deslocamento: " ++ (show shift)
