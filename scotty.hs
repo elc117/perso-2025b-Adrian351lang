@@ -15,23 +15,24 @@ main :: IO ()
 main = scotty 3000 $ do
     get "/" $ do
         html "<h1>Este é um site de ferramentas utilitárias de conversão.</h1>\
-             \<h2>Ferramentas disponíveis:</h2>\
-             \<a href=\"bases\">Conversor de bases numéricas</a><br>\
-             \<br><a href=\"morse/encode\">Codificador de código morse</a><br>\
-             \<br><a href=\"morse/decode\">Decodificador de código morse</a><br>\
-             \<br><a href=\"caesar\">Criptografia com cifra de César</a><br>\
-             \<br><a href=\"romans\">Conversor para números romanos</a><br>"
+             \<h2>🛠️ Ferramentas disponíveis: 🛠️</h2>\
+             \1. <a href=\"bases\">Conversor de bases numéricas</a> 🔟<br>\
+             \<br>2. <a href=\"morse/encode\">Codificador de código morse</a> 📶<br>\
+             \<br>3. <a href=\"morse/decode\">Decodificador de código morse</a> 📶<br>\
+             \<br>4. <a href=\"caesar\">Criptografia com cifra de César</a> 🔣<br>\
+             \<br>5. <a href=\"romans\">Conversor para números romanos</a> 🇻🇦"
 
     get "/bases" $ do
-        html "<h1>Conversor de Bases</h1>\
-             \<h2>Caracteres suportados: (0-9), (A-Z), (a-z), '+' e '/'</h2>\
+        html "<h1>Conversor de Bases 🔟</h1>\
+             \<h3>Caracteres suportados: (0-9), (A-Z), (a-z), '+' e '/'</h3>\
              \<form action='/bases/result' method='post'>\
              \Número a converter: <input type='text' name='input'><br/>\
              \Base do número de entrada (2-64): <input type='number' name='inputBase' min='2' max='64'><br/>\
              \Base do número de saída (2-64): <input type='number' name='outputBase' min='2' max='64'><br/>\
              \<input type='submit' value='converter'>\
-             \<br><a href=\"/\">Voltar para a página principal</a><br>\
-             \</form>"
+             \</form>\
+             \<img src=\"https://www.lifewire.com/thmb/_Kcz92SYc2CaYMDaktNp4iRuwhY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/173580191-56a6f9b85f9b58b7d0e5cb75.jpg\" alt=\"image\" width=512px><br>\
+             \<br><a href=\"/\">Voltar para a página principal</a><br>"
 
     post "/bases/result" $ do
         input <- formParam "input" :: ActionM Text
@@ -46,11 +47,13 @@ main = scotty 3000 $ do
                         "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
     get "/morse/encode" $ do
-        html "<h1>Codificador de Morse</h1>\
+        html "<h1>Codificador de Morse 📶</h1>\
+             \<h3 color=\"red\">Nota: somente letras e números</h3>\
              \<form action='/morse/encode/result' method='post'>\
-             \Texto a codificar: <input type='text' name='text' required>\
+             \Texto a codificar: <input type='text' name='text' required><br>\
              \<input type='submit' value='converter'>\
              \</form>\
+             \<img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Telegraph_key_and_sounder%2C_L.C.T._%28L._C._Tillotson%29_and_Co.%2C_8_Dey_Street%2C_NY_-_Bennington_Museum_-_Bennington%2C_VT_-_DSC08636.JPG/250px-Telegraph_key_and_sounder%2C_L.C.T._%28L._C._Tillotson%29_and_Co.%2C_8_Dey_Street%2C_NY_-_Bennington_Museum_-_Bennington%2C_VT_-_DSC08636.JPG\" alt=\"image\" width=512px><br>\
              \<br><a href=\"/\">Voltar para a página principal</a><br>"
 
     post "/morse/encode/result" $ do
@@ -60,12 +63,13 @@ main = scotty 3000 $ do
         html $ T.pack $ "<h3>Texto original: </h3>" ++ originalText ++ "<h3>Texto em morse: </h3>" ++ morseText ++ "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
     
     get "/morse/decode" $ do
-        html "<h1>Decodificador de Morse</h1>\
-             \<h2>Separar letras por espaços e palavras por barra</h2>\
+        html "<h1>Decodificador de Morse 📶</h1>\
+             \<h3 color=\"red\">Nota: separar letras por espaços e palavras por barra</h3>\
              \<form action='/morse/decode/result' method='post'>\
-             \Código morse a decodificar: <input type='text' name='text' required>\
+             \Código morse a decodificar: <input type='text' name='text' required><br>\
              \<input type='submit' value='converter'>\
              \</form>\
+             \<img src=\"https://images.sampletemplates.com/wp-content/uploads/2015/05/12144219/Morse-Code-Chart-to-Download.jpg\" alt=\"image\" width=420px><br>\
              \<br><a href=\"/\">Voltar para a página principal</a><br>"
 
     post "/morse/decode/result" $ do
@@ -75,12 +79,15 @@ main = scotty 3000 $ do
         html $ T.pack $ "<h3>Morse: </h3>" ++ morseText ++ "<h3>Texto decodificado: </h3>" ++ decodedText ++ "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
     get "/caesar" $ do
-        html "<h1>Cifra de César</h1>\
+        html "<h1>Criptografia com cifra de César 🔣</h1>\
+             \<h3 color=\"red\">nota: somente letras e sem espaços</h3>\
              \<form action='/caesar/result' method='post'>\
-             \Texto a criptografar (somente letras):<br><input type='text' name='text' required><br/>\
-             \Número de deslocamento (positivo para criptografar, negativo para descriptografar):<br><input type='number' name='shift' required><br/>\
+             \Texto a criptografar (somente letras):<br><input type='text' name='text' required><br/><br/>\
+             \Número de deslocamento (positivo para criptografar, negativo para descriptografar):<br><input type='number' name='shift' required><br/><br/>\
              \<input type='submit' value='converter'>\
              \</form>\
+             \<img src=\"https://i.ytimg.com/vi/KwjJKOrcwkg/maxresdefault.jpg\" alt=\"image\" width=512px><br>\
+             \<img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Confederate_cipher_disk.jpg/250px-Confederate_cipher_disk.jpg\" alt=\"image\" width=256px><br>\
              \<br><a href=\"/\">Voltar para a página principal</a><br>"
     
     post "/caesar/result" $ do
@@ -91,11 +98,12 @@ main = scotty 3000 $ do
         html $ T.pack $ "<h3>Texto original: </h3>" ++ originalText ++ "<h3>Texto criptografado: </h3>" ++ caesarText ++ " (deslocamento: " ++ (show shift) ++ ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
     get "/romans" $ do
-        html "<h1>Conversor para Números Romanos</h1>\
+        html "<h1>Conversor para Números Romanos 🇻🇦</h1>\
              \<form action='/romans/result' method='post'>\
              \Número inteiro a converter (máximo 3999): <input type='number' name='num' min='1' max='3999' required><br/>\
              \<input type='submit' value='converter'>\
              \</form>\
+             \<img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Year_1575_in_Arabic_and_Roman_numbers.jpg/250px-Year_1575_in_Arabic_and_Roman_numbers.jpg\" alt=\"image\" width=512px><br>\
              \<br><a href=\"/\">Voltar para a página principal</a><br>"
 
     post "/romans/result" $ do
