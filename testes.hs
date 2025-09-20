@@ -1,9 +1,15 @@
 import BaseConvert
 import MorseFuncs
 import Caesar
+import Romans
 
 main :: IO()
 main = do
+    putStrLn "Digite o número inteiro a converter para numeral romano (máximo 3999):"
+    num <- readLn
+    putStrLn $ "Número original: " ++ (show num)
+    putStrLn $ "Número em romano: " ++ (toRoman num)
+
     putStrLn "Digite o texto a criptografar com a cifra de césar (somente letras):"
     raw <- getLine
     putStrLn "Digite o número de deslocamento (positivo para criptografar, negativo para descriptografar):"

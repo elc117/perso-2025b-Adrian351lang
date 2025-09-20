@@ -9,33 +9,30 @@ Até agora foram inplementadas as seguintes funcionalidades: <br>
 2. Coficação de código morse.
 3. Decoficação de código morse.
 4. Criptografia com cifra de césar.
+5. Converter número para romanos.
 
-O conversor de bases suporta números nas bases 2 até 64. Os caracteres aceitos são (0-9), (A-Z), (a-z), '+' e '/'. <br>
+## Conversor de Bases:
+O conversor de bases suporta números nas bases 2 até 64. <br>
 A menor base possível é 2 (sistema binário) porque não seria possível uma base 1. <br>
 A maior base é 64 porque há um limite de caracteres reconhecidos como dígitos. <br>
 Por enquanto, não há suporte para números com vírgula. <br>
-<br>
-O decodificador de código morse considera que as letras em morse são separadas por espaços, e as palavras, por barras. <br>
-<br>
-O criptografador de cifra de césar recebe um texto com apenas letras e espaços e criptografa de acordo. <br>
-
-# Funcionamento:
 Decidi usar como base o sistema Base64, que usa os caracteres (0-9), (A-Z), (a-z), '+' e '/', como mencionado acima. <br>
 Para converter de base X para base Y, é necessário primeiro converter base X para base 10 e depois base 10 para base Y. <br>
 
-## Para converter de base X para base 10, se usa a seguinte fórmula:
+### Para converter de base X para base 10, se usa a seguinte fórmula:
 ```soma(base ^ peso * dígito; do dígito menos significativo ao mais significativo)```
 <br> <br>
 ![image](https://wikimedia.org/api/rest_v1/media/math/render/svg/ed875ba981decb322a05335f7efdb5490244d67f)
 
-## Para converter de base 10 para base Y, se usa o método das divisões sucessivas, que se trata de:
+### Para converter de base 10 para base Y, se usa o método das divisões sucessivas, que se trata de:
 1. Dividir o número por Y e pegar os restos até chegar a 0.
 2. Os restos serão o número na base Y.
 <br> <br>
 ![image](https://homework.study.com/cimages/multimages/16/capture14204776639827140608.png)
 
 ## Morse:
-Para a conversão de código morse, apenas separei cada letra do texto usei um sistema com switch-case para a conversão. <br>
+O decodificador de código morse considera que as letras em morse são separadas por espaços, e as palavras, por barras. <br>
+Para a conversão, apenas separei cada letra do texto usei um sistema com switch-case para a conversão. <br>
 <br> <br>
 ![image](https://images.sampletemplates.com/wp-content/uploads/2015/05/12144219/Morse-Code-Chart-to-Download.jpg)
 
@@ -48,6 +45,11 @@ A fórmula em pseudocódigo é a seguinte: <br>
 Caesar (palavra, deslocamento) = letra_na_posicao((posicao(letra) + deslocamento) % 26); para toda letra em palavra <br>
 <br><br>
 ![image](https://media.geeksforgeeks.org/wp-content/uploads/ceaserCipher.png)
+
+## Converter para romanos:
+Suporta números até 3999. <br>
+Os números romanos funcionam da seguinte forma: <br><br>
+![image](https://media.geeksforgeeks.org/wp-content/uploads/20230711104223/Roman-numerals.webp)
 
 # Desenvolvimento:
 A criação das funções de conversão em si não foi difícil, apenas precisei aprender algumas funções novas, como "intercalate", "fromEnum" e funções recursivas. <br>
@@ -83,3 +85,4 @@ TODO
 10. https://www.britannica.com/topic/Roman-numeral
 11. https://www.rapidtables.com/math/symbols/roman_numerals.html
 12. https://en.wikibooks.org/wiki/Haskell/Recursion
+13. https://www.geeksforgeeks.org/maths/roman-numerals/
