@@ -5,7 +5,7 @@ Curso: Sistemas de Informação
 # Tema:
 Este projeto se trata de um sistema de conversão e codificação de sistemas númericos, de criptografia e códigos. <br>
 Até agora foram inplementadas as seguintes funcionalidades: <br>
-1. Conversor de número em base númerica X para base numérica Y, bases de 2 a 64.
+1. Conversor de bases numéricas.
 2. Coficação de código morse.
 3. Decoficação de código morse.
 4. Criptografia com cifra de césar.
@@ -19,12 +19,14 @@ Por enquanto, não há suporte para números com vírgula. <br>
 Decidi usar como base o sistema Base64, que usa os caracteres (0-9), (A-Z), (a-z), '+' e '/', como mencionado acima. <br>
 Para converter de base X para base Y, é necessário primeiro converter base X para base 10 e depois base 10 para base Y. <br>
 
-### Para converter de base X para base 10, se usa a seguinte fórmula:
+### 1. Converter de base X para base 10:
+Se usa a seguinte fórmula: <br>
 ```soma(base ^ peso * dígito; do dígito menos significativo ao mais significativo)```
 <br> <br>
 ![image](https://wikimedia.org/api/rest_v1/media/math/render/svg/ed875ba981decb322a05335f7efdb5490244d67f)
 
-### Para converter de base 10 para base Y, se usa o método das divisões sucessivas, que se trata de:
+### Converter de base 10 para base Y:
+Usa-se o método das divisões sucessivas, que se trata de: <br>
 1. Dividir o número por Y e pegar os restos até chegar a 0.
 2. Os restos serão o número na base Y.
 <br> <br>
@@ -59,11 +61,10 @@ A parte mais trabalhosa foi a criação da interface com o framework scotty, já
 Criei dos arquivos de módulo, um com as funções relacionadas à conversão de bases e outro com as funções relacionadas a morse. <br>
 Deixei um arquivo de teste que usa o IO padrão do haskell. <br>
 O site em si está no arquivo scotty.hs, que abre em servidor na porta 3000. <br>
-## Para executar, acessar os seguintes links:
-1. http://localhost:3000
-2. http://localhost:3000/bases
-3. http://localhost:3000/morse/encode
-4. http://localhost:3000/morse/decode
+
+## Endereço:
+Se executado com o ghc na própria máquina, o link deve ser: <br>
+http://localhost:3000
 
 ## Requisitos (baixar com o cabal):
 1. scotty
