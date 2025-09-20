@@ -8,12 +8,16 @@ Até agora foram inplementadas as seguintes funcionalidades: <br>
 1. Conversor de número em base númerica X para base numérica Y, bases de 2 a 64.
 2. Coficação de código morse.
 3. Decoficação de código morse.
+4. Criptografia com cifra de césar.
 
 O conversor de bases suporta números nas bases 2 até 64. Os caracteres aceitos são (0-9), (A-Z), (a-z), '+' e '/'. <br>
 A menor base possível é 2 (sistema binário) porque não seria possível uma base 1. <br>
 A maior base é 64 porque há um limite de caracteres reconhecidos como dígitos. <br>
 Por enquanto, não há suporte para números com vírgula. <br>
+<br>
 O decodificador de código morse considera que as letras em morse são separadas por espaços, e as palavras, por barras. <br>
+<br>
+O criptografador de cifra de césar recebe um texto com apenas letras e espaços e criptografa de acordo. <br>
 
 # Funcionamento:
 Decidi usar como base o sistema Base64, que usa os caracteres (0-9), (A-Z), (a-z), '+' e '/', como mencionado acima. <br>
@@ -34,6 +38,14 @@ Para converter de base X para base Y, é necessário primeiro converter base X p
 Para a conversão de código morse, apenas separei cada letra do texto usei um sistema com switch-case para a conversão. <br>
 <br> <br>
 ![image](https://images.sampletemplates.com/wp-content/uploads/2015/05/12144219/Morse-Code-Chart-to-Download.jpg)
+
+## Cifra de César:
+A codificação de César recebe um conjunto de letras e um número de deslocamento N, de 0 a 26, e desloca todas as letras N letras para a direita. Exemplo: <br>
+Texto original: ATTACKATONCE <br>
+Deslocamento: 4 <br>
+Texto criptografado: EXXEGOEXSRGI <br>
+<br><br>
+![image](https://media.geeksforgeeks.org/wp-content/uploads/ceaserCipher.png)
 
 # Desenvolvimento:
 A criação das funções de conversão em si não foi difícil, apenas precisei aprender algumas funções novas, como "intercalate", "fromEnum" e funções recursivas. <br>
@@ -64,3 +76,5 @@ TODO
 5. https://math.ucr.edu/~jbritton/BaseConversionGuide.pdf
 6. https://stackoverflow.com/questions/3261236/how-to-get-the-ascii-value-of-a-character-in-haskell
 7. https://www.britannica.com/topic/International-Morse-Code
+8. https://en.wikipedia.org/wiki/Caesar_cipher
+9. https://www.geeksforgeeks.org/ethical-hacking/caesar-cipher-in-cryptography/
