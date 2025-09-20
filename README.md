@@ -3,19 +3,21 @@ Nome: Adrian Bellé Secretti <br>
 Curso: Sistemas de Informação
 
 # Tema:
-Este projeto se trata de um sistema para converter um número em uma determinada base para seu equivalente em outra base. <br>
-Também implementei um sistema de codificação e decodificação de código morse. <br>
-O sistema suporta números nas bases 2 até 64. Os caracteres aceitos são (0-9), (A-Z), (a-z), '+' e '/'. <br>
+Este projeto se trata de um sistema de conversão e codificação de sistemas númericos, de criptografia e códigos. <br>
+Até agora foram inplementadas as seguintes funcionalidades: <br>
+1. Conversor de número em base númerica X para base numérica Y, bases de 2 a 64.
+2. Coficação de código morse.
+3. Decoficação de código morse.
+
+O conversor de bases suporta números nas bases 2 até 64. Os caracteres aceitos são (0-9), (A-Z), (a-z), '+' e '/'. <br>
 A menor base possível é 2 (sistema binário) porque não seria possível uma base 1. <br>
 A maior base é 64 porque há um limite de caracteres reconhecidos como dígitos. <br>
 Por enquanto, não há suporte para números com vírgula. <br>
+O decodificador de código morse considera que as letras em morse são separadas por espaços, e as palavras, por barras. <br>
 
-# Desenvolvimento:
+# Funcionamento:
 Decidi usar como base o sistema Base64, que usa os caracteres (0-9), (A-Z), (a-z), '+' e '/', como mencionado acima. <br>
 Para converter de base X para base Y, é necessário primeiro converter base X para base 10 e depois base 10 para base Y. <br>
-Para a conversão de código morse, apenas separei cada letra do texto usei um sistema com switch-case para a conversão. <br>
-<br> <br>
-![image](https://images.sampletemplates.com/wp-content/uploads/2015/05/12144219/Morse-Code-Chart-to-Download.jpg)
 
 ## Para converter de base X para base 10, se usa a seguinte fórmula:
 ```soma(base ^ peso * dígito; do dígito menos significativo ao mais significativo)```
@@ -25,15 +27,24 @@ Para a conversão de código morse, apenas separei cada letra do texto usei um s
 ## Para converter de base 10 para base Y, se usa o método das divisões sucessivas, que se trata de:
 1. Dividir o número por Y e pegar os restos até chegar a 0.
 2. Os restos serão o número na base Y.
-
 <br> <br>
 ![image](https://homework.study.com/cimages/multimages/16/capture14204776639827140608.png)
 
+## Morse:
+Para a conversão de código morse, apenas separei cada letra do texto usei um sistema com switch-case para a conversão. <br>
+<br> <br>
+![image](https://images.sampletemplates.com/wp-content/uploads/2015/05/12144219/Morse-Code-Chart-to-Download.jpg)
+
+# Desenvolvimento:
+A criação das funções de conversão em si não foi difícil, apenas precisei aprender algumas funções novas, como "intercalate", "fromEnum" e funções recursivas. <br>
+A parte mais trabalhosa foi a criação da interface com o framework scotty, já que é complexo conseguir o input do usuário usando-o.
+
 # Execução:
-Deixei dois arquivos de teste, um para testar as funções de conversão de bases e outro para o conversor de morse, ambos usando o IO padrão do haskell. <br>
+Criei dos arquivos de módulo, um com as funções relacionadas à conversão de bases e outro com as funções relacionadas a morse. <br>
+Deixei um arquivo de teste que usa o IO padrão do haskell. <br>
 O site em si está no arquivo scotty.hs, que abre em servidor na porta 3000. <br>
-Para executar, acessar os seguintes links:
-1. http://localhost:3000/
+## Para executar, acessar os seguintes links:
+1. http://localhost:3000
 2. http://localhost:3000/bases
 3. http://localhost:3000/morse/encode
 4. http://localhost:3000/morse/decode
@@ -41,6 +52,9 @@ Para executar, acessar os seguintes links:
 ## Requisitos (baixar com o cabal):
 1. scotty
 2. text
+
+# Resultado:
+TODO
 
 # Referências:
 1. https://en.wikipedia.org/wiki/Base64
