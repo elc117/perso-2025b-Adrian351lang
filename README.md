@@ -32,6 +32,8 @@ Se usa a seguinte fórmula: <br>
 Usa-se o método das divisões sucessivas, que se trata de: <br>
 1. Dividir o número por Y e pegar os restos até chegar a 0.
 2. Os restos serão o número na base Y.
+
+Exemplo com binário:
 <br> <br>
 ![image](https://homework.study.com/cimages/multimages/16/capture14204776639827140608.png)
 
