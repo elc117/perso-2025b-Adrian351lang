@@ -4,18 +4,20 @@ Curso: Sistemas de Informação
 
 # Tema 📄:
 Este projeto se trata de um sistema de conversão e codificação de sistemas númericos, de criptografia e códigos. <br>
+Conta com um menu simples html com as ferramentas de conversão disponíveis. <br>
 Até agora foram inplementadas as seguintes funcionalidades: <br>
 1. Conversor de bases numéricas.
-2. Coficação de código morse.
-3. Decoficação de código morse.
-4. Criptografia com cifra de césar.
-5. Converter decimal para romanos.
-6. Converter romanos para decimal. (W.I.P.)
+2. Codificar texto para morse.
+3. Decodificar morse para texto.
+4. Criptografia de mensagens com cifra de césar.
+5. Converter número decimal para romanos.
+6. Converter de romanos para decimal. (W.I.P.)
 7. Codificar texto com cifra de Vigenère.
 8. Decodificar texto com cifra de Vigenère.
 
 # Desenvolvimento 🛠️:
 Explicação detalhada de como fiz cada sistema:
+
 ## Conversor de Bases:
 O conversor de bases suporta números nas bases 2 até 64. <br>
 A menor base possível é 2 (sistema binário) porque não seria possível uma base 1. <br>
@@ -24,16 +26,18 @@ Por enquanto, não há suporte para números com vírgula. <br>
 Decidi usar como base uma versão modificada do sistema Base64, que usa os caracteres (0-9), (A-Z), (a-z), '+' e '/'. <br>
 Para converter de base X para base Y, é necessário primeiro converter base X para base 10 e depois base 10 para base Y. <br>
 
-### 1. Converter de base X para base 10:
-Se usa a seguinte fórmula: <br>
+### Passo 1. Converter de base X para base 10:
+Para números sem vírgula se usa a seguinte fórmula (em pseudocódigo): <br>
 ```soma(base ^ peso * dígito; do dígito menos significativo ao mais significativo)```
 <br> <br>
+Esta é a fórmula matemática detalhada: <br>
+<br>
 ![image](https://wikimedia.org/api/rest_v1/media/math/render/svg/ed875ba981decb322a05335f7efdb5490244d67f)
 
-### Converter de base 10 para base Y:
+### Passo 2. Converter de base 10 para base Y:
 Usa-se o método das divisões sucessivas, que se trata de: <br>
 1. Dividir o número por Y e pegar os restos até chegar a 0.
-2. Os restos serão o número na base Y.
+2. Os restos ao contrário serão o número na base Y.
 
 Exemplo com binário:
 <br> <br>
@@ -41,17 +45,22 @@ Exemplo com binário:
 
 ## Morse:
 O decodificador de código morse considera que as letras em morse são separadas por espaços, e as palavras, por barras. <br>
-Para a conversão, apenas separei cada letra do texto usei um sistema com switch-case para a conversão. <br>
+Para a conversão, apenas separei cada letra do texto usei um sistema com switch-case (pipes) para a conversão. <br>
 <br> <br>
 ![image](https://images.sampletemplates.com/wp-content/uploads/2015/05/12144219/Morse-Code-Chart-to-Download.jpg)
 
 ## Cifra de César:
-A codificação de César recebe um conjunto de letras e um número de deslocamento N, de 0 a 26, e desloca todas as letras N letras para a direita. Exemplo: <br>
+A codificação de César recebe um conjunto de letras e um número de deslocamento N, de 1 a 25, e desloca todas as letras N letras para a direita. Exemplo: <br>
 Texto original: ATTACKATONCE <br>
 Deslocamento: 4 <br>
 Texto criptografado: EXXEGOEXSRGI <br>
 A fórmula em pseudocódigo é a seguinte: <br>
-Caesar (palavra, deslocamento) = letra_na_posicao((posicao(letra) + deslocamento) % 26); para toda letra em palavra <br>
+```Caesar (palavra, deslocamento) = letra_na_posicao((posicao(letra) + deslocamento) % 26); para toda letra em palavra``` <br>
+onde: <br>
+letra_na_posicao(0) = 'A' <br>
+letra_na_posicao(1) = 'B' <br>
+posicao('A') = 0 <br>
+...
 <br><br>
 ![image](https://media.geeksforgeeks.org/wp-content/uploads/ceaserCipher.png)
 
@@ -63,17 +72,19 @@ Os números romanos funcionam da seguinte forma: <br><br>
 ## Cifra de Vigenère:
 Esta cifra é um método de criptografia que recebe um texto e uma chave, e criptografa o texto usando aquela chave. <br>
 É similar à cifra de César, mas aqui cada letra recebe um deslocamento diferente, de acordo com a chave. <br>
-Primeiro, a chave é estendida para o mesmo tamanho do texto, e então o código de cada letra do texto e somada com o código de cada letra da chave. <br>
+Primeiro, a chave é estendida para o mesmo tamanho do texto, e então o código de cada letra do texto é somada com o código de cada letra da chave. <br>
 Abaixo está a tabela com as combinações de letras: <br> <br>
 ![image](https://www.thecrazyprogrammer.com/wp-content/uploads/2017/08/Vigenere-Cipher-Table.png)
 
 ## Conclusão:
 A parte das funções de conversão de códigos em si não foi difícil, apenas exigiu tempo e estudo. <br>
-Muitos desses sistemas eu já tinha pelo menos um breve conhecimento. O que eu fiz foi estudar mais profundamente como eles funcionam, e desenvolver uma lógica para aplicar esses métodos na linguagem haskell. <br>
+Muitos desses sistemas de codificação eu já tinha pelo menos um breve conhecimento. O que eu fiz foi estudar mais profundamente como eles funcionam, e desenvolver uma lógica para aplicar esses métodos na linguagem haskell. <br>
 Também tive que estudar várias funções nativas do haskell, como fromEnum, intercalate, isAlpha, cycle, divMod, funcões recursivas, entre outras que não conhecia. <br>
+O mais difícil foi fazer a interface funcionar corretamente, pois para pegar o input do usuário necessitei usar as caixas de input do html, e meu conhecimento de html é limitado. <br>
+O html é feito pelo próprio scotty, que define o layout da página. <br>
 
 # Execução 🖥️:
-Criei vários arquivos de módulo com as funções, compilar todos juntos. <br>
+Criei vários arquivos de módulo com as funções, para compartilhá-los entre o arquivo do site e o arquivo de tested. <br>
 Deixei um arquivo de teste que usa o IO padrão do haskell. <br>
 O site em si está no arquivo "scotty.hs", que abre em servidor na porta 3000. <br>
 O makefile que está no projeto já tem os comandos para compilar os testes e o site. <br>
@@ -82,9 +93,13 @@ O makefile que está no projeto já tem os comandos para compilar os testes e o 
 Se executado com o ghc na própria máquina, o link deve ser: <br>
 http://localhost:3000
 
-## Requisitos (baixar com o cabal):
+## Requisitos:
+Instalar os seguintes:
 1. scotty
 2. text
+```shell
+cabal install --lib scotty text
+```
 
 # Resultado 📊:
 TODO
