@@ -1,14 +1,24 @@
-MODULES_DIR = modules/
-MODULES = $(wildcard $(MODULES_DIR)*.hs)
-TEST_FILE = testes
-RUN_FILE = site
+CC = ghc
+REMOVE = rm
+
+MODULES_DIR = modules
+MODULES = $(wildcard $(MODULES_DIR)/*.hs)
+MAIN_DIR = main
+TEST_FILE = $(MAIN_DIR)/testes
+RUN_FILE = $(MAIN_DIR)/site
+
+PKGMAN = cabal
+PKGS = scotty text
 
 run:
-	ghc $(MODULES) $(RUN_FILE).hs
+	$(CC) $(MODULES) $(RUN_FILE).hs
 	./$(RUN_FILE)
-	rm *.o *.hi $(RUN_FILE)
+	$(REMOVE) $(RUN_FILE)
 
 test:
-	ghc $(MODULES) $(TEST_FILE).hs
+	$(CC) $(MODULES) $(TEST_FILE).hs
 	./$(TEST_FILE)
-	rm *.o *.hi $(TEST_FILE)
+	$(REMOVE) $(TEST_FILE)
+
+setup:
+	$(PKGMAN) install --lib $(PKGS)

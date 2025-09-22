@@ -16,11 +16,11 @@ main :: IO ()
 main = scotty 3000 $ do
     get "/" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
-        file "static/mainpage.html"
+        file "pages/mainpage.html"
 
     get "/bases" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
-        file "static/bases.html"
+        file "pages/bases.html"
 
     post "/bases/result" $ do
         input <- formParam "input" :: ActionM Text
@@ -36,7 +36,7 @@ main = scotty 3000 $ do
 
     get "/morse/encode" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
-        file "static/morsencode.html"
+        file "pages/morsencode.html"
 
     post "/morse/encode/result" $ do
         text <- formParam "text" :: ActionM Text
@@ -48,7 +48,7 @@ main = scotty 3000 $ do
     
     get "/morse/decode" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
-        file "static/morsedecode.html"
+        file "pages/morsedecode.html"
 
     post "/morse/decode/result" $ do
         text <- formParam "text" :: ActionM Text
@@ -60,7 +60,7 @@ main = scotty 3000 $ do
 
     get "/caesar" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
-        file "static/caesar.html"
+        file "pages/caesar.html"
     
     post "/caesar/result" $ do
         text <- formParam "text" :: ActionM Text
@@ -73,7 +73,7 @@ main = scotty 3000 $ do
 
     get "/romans/to" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
-        file "static/toromans.html"
+        file "pages/toromans.html"
 
     post "/romans/to/result" $ do
         num <- formParam "num" :: ActionM Int
@@ -84,7 +84,7 @@ main = scotty 3000 $ do
     
     get "/romans/from" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
-        file "static/fromromans.html"
+        file "pages/fromromans.html"
     
     post "/romans/from/result" $ do
         roman <- formParam "roman" :: ActionM Text
@@ -96,7 +96,7 @@ main = scotty 3000 $ do
 
     get "/vigenere/encode" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
-        file "static/tovigenere.html"
+        file "pages/tovigenere.html"
 
     post "/vigenere/encode/result" $ do
         text <- formParam "text" :: ActionM Text
@@ -110,7 +110,7 @@ main = scotty 3000 $ do
 
     get "/vigenere/decode" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
-        file "static/fromvigenere.html"
+        file "pages/fromvigenere.html"
 
     post "/vigenere/decode/result" $ do
         text <- formParam "text" :: ActionM Text
