@@ -2,6 +2,8 @@
 
 module SharedFuncs where
 
+import Data.Char (isUpper, isLower)
+
 -- função auxiliar para pegar a posição da letra no alfabeto (A=0, B=1, ..., Z=25)
 letterPos :: Char -> Int
 letterPos c

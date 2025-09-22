@@ -55,8 +55,8 @@ main = scotty 3000 $ do
         let morseText = T.unpack text
         let decodedText = morseToText morseText
         html $ T.pack $ "<h3>Morse: </h3>" ++ morseText ++
-        "<h3>Texto decodificado: </h3>" ++ decodedText ++
-        "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
+                        "<h3>Texto decodificado: </h3>" ++ decodedText ++
+                        "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
     get "/caesar" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
@@ -68,8 +68,8 @@ main = scotty 3000 $ do
         let originalText = T.unpack text
         let caesarText = caesar originalText shift
         html $ T.pack $ "<h3>Texto original: </h3>" ++ originalText ++
-        "<h3>Texto criptografado: </h3>" ++ caesarText ++ " (deslocamento: " ++ (show shift) ++
-        ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
+                        "<h3>Texto criptografado: </h3>" ++ caesarText ++ " (deslocamento: " ++ (show shift) ++
+                        ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
     get "/romans/to" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
@@ -79,8 +79,8 @@ main = scotty 3000 $ do
         num <- formParam "num" :: ActionM Int
         let romanNum = toRoman num
         html $ T.pack $ "<h3>Número original: </h3>" ++ show num ++
-        "<h3>Número em romanos: </h3>" ++ romanNum ++
-        "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
+                        "<h3>Número em romanos: </h3>" ++ romanNum ++
+                        "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
     
     get "/romans/from" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
@@ -91,8 +91,8 @@ main = scotty 3000 $ do
         let romanStr = T.unpack roman
         let intNum = fromRoman romanStr
         html $ T.pack $ "<h3>Número em romanos: </h3>" ++ romanStr ++
-        "<h3>Número em inteiro: </h3>" ++ show intNum ++
-        "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
+                        "<h3>Número em inteiro: </h3>" ++ show intNum ++
+                        "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
     get "/vigenere/encode" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
@@ -105,8 +105,8 @@ main = scotty 3000 $ do
         let keyText = T.unpack key
         let vigenereText = toVigenere originalText keyText
         html $ T.pack $ "<h3>Texto original: </h3>" ++ originalText ++
-        "<h3>Texto codificado: </h3>" ++ vigenereText ++ " (chave: " ++ keyText ++
-        ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
+                        "<h3>Texto codificado: </h3>" ++ vigenereText ++ " (chave: " ++ keyText ++
+                        ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
     get "/vigenere/decode" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
@@ -119,5 +119,5 @@ main = scotty 3000 $ do
         let keyText = T.unpack key
         let decodedText = fromVigenere cipherText keyText
         html $ T.pack $ "<h3>Texto codificado: </h3>" ++ cipherText ++
-        "<h3>Texto decodificado: </h3>" ++ decodedText ++ " (chave: " ++ keyText ++
-        ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
+                        "<h3>Texto decodificado: </h3>" ++ decodedText ++ " (chave: " ++ keyText ++
+                        ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
