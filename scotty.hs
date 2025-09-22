@@ -45,14 +45,8 @@ main = scotty 3000 $ do
         html $ T.pack $ "<h3>Texto original: </h3>" ++ originalText ++ "<h3>Texto em morse: </h3>" ++ morseText ++ "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
     
     get "/morse/decode" $ do
-        html "<h1>Decodificador de Morse 📶</h1>\
-             \<h3 color=\"red\">Nota: separar letras por espaços e palavras por barra</h3>\
-             \<form action='/morse/decode/result' method='post'>\
-             \Código morse a decodificar: <input type='text' name='text' required><br>\
-             \<input type='submit' value='converter'>\
-             \</form>\
-             \<img src=\"https://images.sampletemplates.com/wp-content/uploads/2015/05/12144219/Morse-Code-Chart-to-Download.jpg\" alt=\"image\" width=420px><br>\
-             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+        setHeader "Content-Type" "text/html; charset=utf-8"
+        file "static/morsedecode.html"
 
     post "/morse/decode/result" $ do
         text <- formParam "text" :: ActionM Text
