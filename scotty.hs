@@ -25,7 +25,7 @@ main = scotty 3000 $ do
              \<br>6. <a href=\"romans/from\">Converter número de romanos para decimal</a> 🇻🇦<br>\
              \<br>7. <a href=\"vigenere/encode\">Codificador de Vigenère</a> 🔐<br>\
              \<br>8. <a href=\"vigenere/decode\">Decodificador de Vigenère</a> 🔐<br>\
-             \<br><a href=\"https://github.com/elc117/perso-2025b-Adrian351lang\">Código fonte (github) 🖥️</a>"
+             \<br><br><a href=\"https://github.com/elc117/perso-2025b-Adrian351lang\">Código fonte (github)</a> 🖥️"
 
     get "/bases" $ do
         html "<h1>Conversor de Bases 🔟</h1>\
