@@ -35,14 +35,8 @@ main = scotty 3000 $ do
                         "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
     get "/morse/encode" $ do
-        html "<h1>Codificador de Morse 📶</h1>\
-             \<h3 color=\"red\">Nota: somente letras e números</h3>\
-             \<form action='/morse/encode/result' method='post'>\
-             \Texto a codificar: <input type='text' name='text' required><br>\
-             \<input type='submit' value='converter'>\
-             \</form>\
-             \<img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Telegraph_key_and_sounder%2C_L.C.T._%28L._C._Tillotson%29_and_Co.%2C_8_Dey_Street%2C_NY_-_Bennington_Museum_-_Bennington%2C_VT_-_DSC08636.JPG/250px-Telegraph_key_and_sounder%2C_L.C.T._%28L._C._Tillotson%29_and_Co.%2C_8_Dey_Street%2C_NY_-_Bennington_Museum_-_Bennington%2C_VT_-_DSC08636.JPG\" alt=\"image\" width=512px><br>\
-             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+        setHeader "Content-Type" "text/html; charset=utf-8"
+        file "static/morsencode.html"
 
     post "/morse/encode/result" $ do
         text <- formParam "text" :: ActionM Text
