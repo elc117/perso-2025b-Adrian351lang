@@ -11,7 +11,7 @@ Até agora foram inplementadas as seguintes funcionalidades: <br>
 3. Decodificar morse para texto.
 4. Criptografia de mensagens com cifra de césar.
 5. Converter número decimal para romanos.
-6. Converter de romanos para decimal. (W.I.P.)
+6. Converter de romanos para decimal.
 7. Codificar texto com cifra de Vigenère.
 8. Decodificar texto com cifra de Vigenère.
 
@@ -81,22 +81,22 @@ A parte das funções de conversão de códigos em si não foi difícil, apenas 
 Muitos desses sistemas de codificação eu já tinha pelo menos um breve conhecimento. O que eu fiz foi estudar mais profundamente como eles funcionam, e desenvolver uma lógica para aplicar esses métodos na linguagem haskell. <br>
 Também tive que estudar várias funções nativas do haskell, como fromEnum, intercalate, isAlpha, cycle, divMod, funcões recursivas, entre outras que não conhecia. <br>
 O mais difícil foi fazer a interface funcionar corretamente, pois para pegar o input do usuário necessitei usar as caixas de input do html, e meu conhecimento de html é limitado. <br>
-Há arquivos html na pasta "static/", com as interfaces. <br>
 
 # Execução 🖥️:
-Criei vários arquivos de módulo com as funções, para compartilhá-los entre o arquivo do site e o arquivo de tested. <br>
-Deixei um arquivo de teste que usa o IO padrão do haskell. <br>
-O site em si está no arquivo "scotty.hs", que abre em servidor na porta 3000. <br>
+Criei vários arquivos de módulo com as funções, para compartilhá-los entre o arquivo do site e o arquivo de teste. <br>
+Deixei dois arquivos na pasta "main/", um arquivo de testes que usa o IO padrão, e um que abre o site na porta 3000. <br>
+Há arquivos html na pasta "pages/", com as interfaces. <br>
 O makefile que está no projeto já tem os comandos para compilar os testes e o site. <br>
 
 ## Endereço:
 Se executado com o ghc na própria máquina, o link deve ser: <br>
-http://localhost:3000
+http://localhost:3000/
 
 ## Requisitos:
 Instalar os seguintes:
 1. scotty
 2. text
+
 ```shell
 cabal install --lib scotty text
 ```
