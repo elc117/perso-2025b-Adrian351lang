@@ -19,16 +19,8 @@ main = scotty 3000 $ do
         file "static/mainpage.html"
 
     get "/bases" $ do
-        html "<h1>Conversor de Bases 🔟</h1>\
-             \<h3>Caracteres suportados: (0-9), (A-Z), (a-z), '+' e '/'</h3>\
-             \<form action='/bases/result' method='post'>\
-             \Número a converter: <input type='text' name='input'><br/>\
-             \Base do número de entrada (2-64): <input type='number' name='inputBase' min='2' max='64'><br/>\
-             \Base do número de saída (2-64): <input type='number' name='outputBase' min='2' max='64'><br/>\
-             \<input type='submit' value='converter'>\
-             \</form>\
-             \<img src=\"https://www.lifewire.com/thmb/_Kcz92SYc2CaYMDaktNp4iRuwhY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/173580191-56a6f9b85f9b58b7d0e5cb75.jpg\" alt=\"image\" width=512px><br>\
-             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+        setHeader "Content-Type" "text/html; charset=utf-8"
+        file "static/bases.html"
 
     post "/bases/result" $ do
         input <- formParam "input" :: ActionM Text
