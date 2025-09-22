@@ -1,7 +1,8 @@
 module Vigenere where
 
 import Data.Char (isAlpha)
-import Caesar (letterPos, letterIn) -- reutiliza funções do módulo Caesar
+
+import sharedFuncs (letterPos, letterIn)
 
 -- cifra um único caractere usando a cifra de Vigenère
 toVigenereChar :: Char -> Char -> Char
