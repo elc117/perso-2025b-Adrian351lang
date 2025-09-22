@@ -14,6 +14,8 @@ Até agora foram inplementadas as seguintes funcionalidades: <br>
 7. Codificar texto com cifra de Vigenère.
 8. Decodificar texto com cifra de Vigenère.
 
+# Desenvolvimento 🛠️:
+Explicação detalhada de como fiz cada sistema:
 ## Conversor de Bases:
 O conversor de bases suporta números nas bases 2 até 64. <br>
 A menor base possível é 2 (sistema binário) porque não seria possível uma base 1. <br>
@@ -65,9 +67,10 @@ Primeiro, a chave é estendida para o mesmo tamanho do texto, e então o código
 Abaixo está a tabela com as combinações de letras: <br> <br>
 ![image](https://www.thecrazyprogrammer.com/wp-content/uploads/2017/08/Vigenere-Cipher-Table.png)
 
-# Desenvolvimento 🛠️:
-A criação das funções de conversão em si não foi difícil, apenas precisei aprender algumas funções novas, como "intercalate", "fromEnum" e funções recursivas. <br>
-A parte mais trabalhosa foi a criação da interface com o framework scotty, já que é complexo conseguir o input do usuário usando-o.
+## Conclusão:
+A parte das funções de conversão de códigos em si não foi difícil, apenas exigiu tempo e estudo. <br>
+Muitos desses sistemas eu já tinha pelo menos um breve conhecimento. O que eu fiz foi estudar mais profundamente como eles funcionam, e desenvolver uma lógica para aplicar esses métodos na linguagem haskell. <br>
+Também tive que estudar várias funções nativas do haskell, como fromEnum, intercalate, isAlpha, cycle, divMod, funcões recursivas, entre outras que não conhecia. <br>
 
 # Execução 🖥️:
 Criei vários arquivos de módulo com as funções, compilar todos juntos. <br>
