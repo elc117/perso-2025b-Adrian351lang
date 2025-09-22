@@ -66,13 +66,8 @@ main = scotty 3000 $ do
         html $ T.pack $ "<h3>Texto original: </h3>" ++ originalText ++ "<h3>Texto criptografado: </h3>" ++ caesarText ++ " (deslocamento: " ++ (show shift) ++ ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
     get "/romans/to" $ do
-        html "<h1>Conversor para Números Romanos 🇻🇦</h1>\
-             \<form action='/romans/to/result' method='post'>\
-             \Número inteiro a converter (máximo 3999): <input type='number' name='num' min='1' max='3999' required><br/>\
-             \<input type='submit' value='converter'>\
-             \</form>\
-             \<img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Year_1575_in_Arabic_and_Roman_numbers.jpg/250px-Year_1575_in_Arabic_and_Roman_numbers.jpg\" alt=\"image\" width=512px><br>\
-             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+        setHeader "Content-Type" "text/html; charset=utf-8"
+        file "static/toromans.html"
 
     post "/romans/to/result" $ do
         num <- formParam "num" :: ActionM Int
