@@ -2,7 +2,7 @@ module Vigenere where
 
 import Data.Char (isAlpha)
 
-import sharedFuncs (letterPos, letterIn)
+import SharedFuncs (letterPos, letterIn)
 
 -- cifra um único caractere usando a cifra de Vigenère
 toVigenereChar :: Char -> Char -> Char

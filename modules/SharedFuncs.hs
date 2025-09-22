@@ -1,4 +1,6 @@
-module sharedFuncs where
+-- funções que se compartilham com outros módulos
+
+module SharedFuncs where
 
 -- função auxiliar para pegar a posição da letra no alfabeto (A=0, B=1, ..., Z=25)
 letterPos :: Char -> Int

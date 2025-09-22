@@ -2,7 +2,7 @@ module Caesar where
 
 import Data.Char (isAlpha, isUpper, isLower)
 
-import sharedFuncs (letterPos, letterIn)
+import SharedFuncs (letterPos, letterIn)
 
 -- função que aplica o deslocamento de César a um caractere
 -- fórmula: nova_posicao = (posicao_atual + deslocamento) % 26
