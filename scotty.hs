@@ -55,16 +55,8 @@ main = scotty 3000 $ do
         html $ T.pack $ "<h3>Morse: </h3>" ++ morseText ++ "<h3>Texto decodificado: </h3>" ++ decodedText ++ "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
     get "/caesar" $ do
-        html "<h1>Criptografia com cifra de César 🔣</h1>\
-             \<h3 color=\"red\">nota: somente letras serão alteradas</h3>\
-             \<form action='/caesar/result' method='post'>\
-             \Texto a criptografar (somente letras):<br><input type='text' name='text' required><br/><br/>\
-             \Número de deslocamento (positivo para criptografar, negativo para descriptografar):<br><input type='number' name='shift' required><br/><br/>\
-             \<input type='submit' value='converter'>\
-             \</form>\
-             \<img src=\"https://i.ytimg.com/vi/KwjJKOrcwkg/maxresdefault.jpg\" alt=\"image\" width=512px><br>\
-             \<img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Confederate_cipher_disk.jpg/250px-Confederate_cipher_disk.jpg\" alt=\"image\" width=256px><br>\
-             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+        setHeader "Content-Type" "text/html; charset=utf-8"
+        file "static/caesar.html"
     
     post "/caesar/result" $ do
         text <- formParam "text" :: ActionM Text
