@@ -81,7 +81,7 @@ A parte das funções de conversão de códigos em si não foi difícil, apenas 
 Muitos desses sistemas de codificação eu já tinha pelo menos um breve conhecimento. O que eu fiz foi estudar mais profundamente como eles funcionam, e desenvolver uma lógica para aplicar esses métodos na linguagem haskell. <br>
 Também tive que estudar várias funções nativas do haskell, como fromEnum, intercalate, isAlpha, cycle, divMod, funcões recursivas, entre outras que não conhecia. <br>
 O mais difícil foi fazer a interface funcionar corretamente, pois para pegar o input do usuário necessitei usar as caixas de input do html, e meu conhecimento de html é limitado. <br>
-O html é feito pelo próprio scotty, que define o layout da página. <br>
+Há arquivos html na pasta "static/", com as interfaces. <br>
 
 # Execução 🖥️:
 Criei vários arquivos de módulo com as funções, para compartilhá-los entre o arquivo do site e o arquivo de tested. <br>
