@@ -1,5 +1,5 @@
 MODULES_DIR = modules/
-MODULES = $(wildcard $(MODULES_DIR)/*.hs)
+MODULES = $(wildcard $(MODULES_DIR)*.hs)
 TEST_FILE = testes
 RUN_FILE = site
 
