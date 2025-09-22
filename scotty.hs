@@ -75,14 +75,8 @@ main = scotty 3000 $ do
         html $ T.pack $ "<h3>Número original: </h3>" ++ show num ++ "<h3>Número em romanos: </h3>" ++ romanNum ++ "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
     
     get "/romans/from" $ do
-        html "<h1>Conversor de Números Romanos 🇻🇦</h1>\
-             \<h3 color=\"red\">nota: apenas letras romanas (MDCLXVI)</h3>\
-             \<form action='/romans/from/result' method='post'>\
-             \Número em romanos a converter: <input type='text' name='roman' required><br/>\
-             \<input type='submit' value='converter'>\
-             \</form>\
-             \<img src=\"https://media.geeksforgeeks.org/wp-content/uploads/20230711104223/Roman-numerals.webp\" alt=\"image\" width=256px><br>\
-             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+        setHeader "Content-Type" "text/html; charset=utf-8"
+        file "static/fromromans.html"
     
     post "/romans/from/result" $ do
         roman <- formParam "roman" :: ActionM Text
@@ -91,16 +85,8 @@ main = scotty 3000 $ do
         html $ T.pack $ "<h3>Número em romanos: </h3>" ++ romanStr ++ "<h3>Número em inteiro: </h3>" ++ show intNum ++ "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
     get "/vigenere/encode" $ do
-        html "<h1>Codificador de Vigenère 🔐</h1>\
-             \<h3 color=\"red\">nota 1: somente letras serão alteradas</h3>\
-             \<h3 color=\"red\">nota 2: NÃO coloque acentos</h3>\
-             \<form action='/vigenere/encode/result' method='post'>\
-             \Texto a codificar (somente letras):<br><input type='text' name='text' required><br/><br/>\
-             \Chave (somente letras):<br><input type='text' name='key' required><br/><br/>\
-             \<input type='submit' value='converter'>\
-             \</form>\
-             \<img src=\"https://www.thecrazyprogrammer.com/wp-content/uploads/2017/08/Vigenere-Cipher-Table.png\" alt=\"image\" width=256px><br>\
-             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+        setHeader "Content-Type" "text/html; charset=utf-8"
+        file "static/tovigenere.html"
 
     post "/vigenere/encode/result" $ do
         text <- formParam "text" :: ActionM Text
@@ -111,15 +97,8 @@ main = scotty 3000 $ do
         html $ T.pack $ "<h3>Texto original: </h3>" ++ originalText ++ "<h3>Texto codificado: </h3>" ++ vigenereText ++ " (chave: " ++ keyText ++ ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
 
     get "/vigenere/decode" $ do
-        html "<h1>Decodificador de Vigenère 🔐</h1>\
-             \<h3 color=\"red\">nota: somente letras serão alteradas</h3>\
-             \<form action='/vigenere/decode/result' method='post'>\
-             \Texto a decodificar (somente letras):<br><input type='text' name='text' required><br/><br/>\
-             \Chave (somente letras):<br><input type='text' name='key' required><br/><br/>\
-             \<input type='submit' value='converter'>\
-             \</form>\
-             \<img src=\"https://www.thecrazyprogrammer.com/wp-content/uploads/2017/08/Vigenere-Cipher-Table.png\" alt=\"image\" width=256px><br>\
-             \<br><a href=\"/\">Voltar para a página principal</a><br>"
+        setHeader "Content-Type" "text/html; charset=utf-8"
+        file "static/fromvigenere.html"
 
     post "/vigenere/decode/result" $ do
         text <- formParam "text" :: ActionM Text
