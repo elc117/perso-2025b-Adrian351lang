@@ -9,3 +9,8 @@ h2 {
 h3 {
 	color: red;
 }
+
+p {
+	font-style: italic;
+	font-size: 13px;
+}

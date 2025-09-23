@@ -2,14 +2,17 @@
 <html>
 	<head>
 		<title>Scotty</title>
+    <link rel='stylesheet' type='text/css' href='/style.css'>
 	</head>
 	<body>
       <h1>Codificador de Vigenère 🔐</h1>
-      <h3 color='red'>nota 1: somente letras serão alteradas</h3>
-      <h3 color='red'>nota 2: NÃO coloque acentos</h3>
+      <h3>nota 1: somente letras serão alteradas</h3>
+      <h3>nota 2: NÃO coloque acentos</h3>
       <form action='/vigenere/encode/result' method='post'>
-        Texto a codificar (somente letras):<br><input type='text' name='text' required><br/><br/>
-        Chave (somente letras):<br><input type='text' name='key' required><br/><br/>
+        <prompt>Texto a codificar (somente letras):</prompt><br>
+        <input type='text' name='text' required><br/><br/>
+        <prompt>Chave (somente letras):</prompt><br>
+        <input type='text' name='key' required><br/><br/>
         <input type='submit' value='converter'>
       </form>
       <br>

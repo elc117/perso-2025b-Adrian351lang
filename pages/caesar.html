@@ -2,13 +2,16 @@
 <html>
 	<head>
 		<title>Scotty</title>
+    <link rel='stylesheet' type='text/css' href='/style.css'>
 	</head>
 	<body>
       <h1>Criptografia com cifra de César 🔣</h1>
-      <h3 color='red'>nota: somente letras serão alteradas</h3>
+      <h3>nota: somente letras serão alteradas</h3>
       <form action='/caesar/result' method='post'>
-          Texto a criptografar (somente letras):<br><input type='text' name='text' required><br/><br/>
-          Número de deslocamento (positivo para criptografar, negativo para descriptografar):<br><input type='number' name='shift' required><br/><br/>
+          <prompt>Texto a criptografar (somente letras):</prompt><br>
+          <input type='text' name='text' required><br/><br/>
+          <prompt>Número de deslocamento (positivo para criptografar, negativo para descriptografar):</prompt><br>
+          <input type='number' name='shift' required><br/><br/>
           <input type='submit' value='converter'>
       </form>
       <br>
