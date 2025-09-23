@@ -42,7 +42,7 @@ morseParse str
     | str == "----."= '9'
     | str == "-----"= '0'
     | str == "/"    = ' '
-    | otherwise = error "código morse inválido"
+    | otherwise = '⍰' -- caractere para indicar erro
 
 getMorse :: Char -> String
 getMorse ch
@@ -83,7 +83,7 @@ getMorse ch
     | c == '9' = "----."
     | c == '0' = "-----"
     | c == ' ' = "/"
-    | otherwise = error "caractere não disponível em morse"
+    | otherwise = "⍰" -- caractere para indicar erro
 
     where
         c = toUpper ch
@@ -94,5 +94,6 @@ morseToText :: String -> String
 morseToText str = map morseParse (words str) 
 
 -- o inverso da de cima
+-- intercala as letras em morse com espaço entre elas
 textToMorse :: String -> String
 textToMorse str = intercalate " " (map getMorse str)

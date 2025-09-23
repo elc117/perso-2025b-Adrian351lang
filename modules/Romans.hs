@@ -10,7 +10,7 @@ thousandToRoman d
   | d == 1 = "M"
   | d == 2 = "MM"
   | d == 3 = "MMM"
-  | otherwise = error "valor muito grande"
+  | otherwise = "⍰" -- caso especial para números maiores que 3999, que não possuem representação em numeral romano tradicional
 
 -- converte as centenas
 hundredToRoman:: Int -> String
@@ -59,7 +59,7 @@ unitToRoman d
 toRoman:: Int -> String
 toRoman num
     | num < 4000 = thousandToRoman thousands ++ hundredToRoman hundreds ++ tenToRoman tens ++ unitToRoman units
-    | otherwise = error "valor muito grande"
+    | otherwise = "⍰" -- caso especial para números maiores que 3999, que não possuem representação em numeral romano tradicional
 
     where
         thousands = num `mod` 10000 `div` 1000
@@ -77,7 +77,7 @@ romanCharToInt c
     | c == 'C' = 100
     | c == 'D' = 500
     | c == 'M' = 1000
-    | otherwise = error "caractere inválido"
+    | otherwise = 0 -- caso especial para caractere inválido
 
 -- verifica se deve somar ou subtrair o valor do caractere romano
 fromRomanChar:: Char -> Char -> Int
@@ -104,8 +104,8 @@ noLetterOverrepetition str = not $ any (>= 4) (map length (group (map toUpper st
 -- converte uma string de numeral romano para um número inteiro
 fromRoman :: String -> Int
 fromRoman str
-    | not (isValidRomanLetters str) = error "o número digitado ontém letras não romanas"
-    | not (noLetterOverrepetition str) = error "o número digitado possui mais de 3 letras iguais consecutivas"
+    | not (isValidRomanLetters str) = 0 -- retorna 0 se houver caractere inválido
+    | not (noLetterOverrepetition str) = 0
     | otherwise = sum (map (\(c, next) -> fromRomanChar c next) pairs)
 
     where
