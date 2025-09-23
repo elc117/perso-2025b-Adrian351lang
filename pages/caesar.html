@@ -6,11 +6,12 @@
 	</head>
 	<body>
       <h1>Criptografia com cifra de César 🔣</h1>
-      <h3>nota: somente letras serão alteradas</h3>
+      <h3>nota 1: somente letras serão alteradas</h3>
+      <h3>nota 2: deslocamento positivo para criptografar, negativo para descriptografar</h3>
       <form action='/caesar/result' method='post'>
-          <prompt>Texto a criptografar (somente letras):</prompt><br>
+          <prompt>Texto a criptografar:</prompt><br>
           <input type='text' name='text' required><br/><br/>
-          <prompt>Número de deslocamento (positivo para criptografar, negativo para descriptografar):</prompt><br>
+          <prompt>Número de deslocamento:</prompt><br>
           <input type='number' name='shift' required><br/><br/>
           <input type='submit' value='converter'>
       </form>

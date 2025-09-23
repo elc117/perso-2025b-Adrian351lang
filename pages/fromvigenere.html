@@ -6,11 +6,12 @@
 	</head>
 	<body>
       <h1>Decodificador de Vigenère 🔐</h1>
-      <h3>nota: somente letras serão alteradas</h3>
+      <h3>nota 1: somente letras serão alteradas</h3>
+      <h3>nota 2: a chave deve ser APENAS letras</h3>
       <form action='/vigenere/decode/result' method='post'>
-        <prompt>Texto a decodificar (somente letras):</prompt><br>
+        <prompt>Texto a decodificar:</prompt><br>
         <input type='text' name='text' required><br/><br/>
-        <prompt>Chave (somente letras):</prompt><br>
+        <prompt>Chave:</prompt><br>
         <input type='text' name='key' required><br/><br/>
         <input type='submit' value='converter'>
       </form>
