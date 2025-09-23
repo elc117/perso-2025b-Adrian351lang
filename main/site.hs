@@ -121,3 +121,7 @@ main = scotty 3000 $ do
         html $ T.pack $ "<h3>Texto codificado: </h3>" ++ cipherText ++
                         "<h3>Texto decodificado: </h3>" ++ decodedText ++ " (chave: " ++ keyText ++
                         ")<br><br><a href=\"/\">Voltar para a página principal</a><br>"
+
+    get "/style.css" $ do
+        setHeader "Content-Type" "text/css; charset=utf-8"
+        file "pages/style.css"
