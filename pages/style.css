@@ -4,6 +4,7 @@ h1 {
 
 h2 {
 	color: blue;
+	font-style: italic;
 }
 
 h3 {
@@ -13,4 +14,58 @@ h3 {
 p {
 	font-style: italic;
 	font-size: 13px;
+}
+
+img {
+	border: 2px solid black;
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px grey;
+}
+
+prompt {
+	font-weight: bold;
+	color: green;
+}
+
+input[type="text"] {
+	border: 1px solid grey;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px 0;
+	width: 512px;
+}
+
+input[type="number"] {
+	border: 1px solid grey;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 5px 0;
+	width: 64px;
+}
+
+input[type="submit"] {
+	background-color: green;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+input[type="submit"]:hover {
+	background-color: darkgreen;
+}
+
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+body {
+	font: "times new roman", serif;
 }
