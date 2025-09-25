@@ -102,7 +102,9 @@ cabal install --lib scotty text
 ```
 
 # Resultado 📊:
-TODO
+Abaixo está o teste do programa realizado no dia 25/09/2025: <br>
+## Vídeo:
+https://github.com/user-attachments/assets/489ccecc-6560-4042-bd6b-ed3409065983
 
 # Referências 📜:
 1. WIKIPEDIA CONTRIBUTORS. Base64. Disponível em: <https://en.wikipedia.org/wiki/Base64>.
