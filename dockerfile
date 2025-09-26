@@ -2,9 +2,9 @@ FROM haskell:latest
 
 WORKDIR /app
 
-COPY . .
-
 RUN cabal update && cabal install --lib scotty text
+
+COPY . .
 
 EXPOSE 3000
 

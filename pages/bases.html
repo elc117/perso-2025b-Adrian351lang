@@ -1,23 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-	<head>
-		<title>Scotty</title>
-		<link rel='stylesheet' type='text/css' href='/style.css'>
-	</head>
-	<body>
-		<h1>Conversor de Bases 🔟</h1>
-		<h2>Caracteres suportados: (0-9), (A-Z), (a-z), '+' e '/'</h2>
-		<form action='/bases/result' method='post'>
-			<prompt>Número a converter: </prompt><br>
-			<input type='text' name='input'><br>
-			<prompt>Base do número de entrada (2-64):</prompt><br>
-			<input type='number' name='inputBase' min='2' max='64'><br>
-			<prompt>Base do número de entrada (2-64):</prompt><br>
-			<input type='number' name='outputBase' min='2' max='64'><br>
-			<br>
-			<input type='submit' value='converter'>
-		</form>
-		<br><img src='https://www.lifewire.com/thmb/_Kcz92SYc2CaYMDaktNp4iRuwhY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/173580191-56a6f9b85f9b58b7d0e5cb75.jpg' alt='image' width=512px><br><br>
-		<a href='/'>Voltar para a página principal</a><br>
-	</body>
+    <head>
+        <title>Scotty</title>
+        <link rel="stylesheet" type="text/css" href="/style.css" />
+    </head>
+    <body>
+        <h1>Conversor de Bases 🔟</h1>
+        <h2>Caracteres suportados: (0-9), (A-Z), (a-z), '+' e '/'</h2>
+        <form action="/bases/result" method="post">
+            <prompt> Número a converter: </prompt><br />
+            <input type="text" name="input" /><br />
+            <prompt>Base do número de entrada (2-64):</prompt><br />
+            <input type="number" name="inputBase" min="2" max="64" /><br />
+            <prompt>Base do número de saída (2-64):</prompt><br />
+            <input type="number" name="outputBase" min="2" max="64" /><br />
+            <br />
+            <input type="submit" value="converter" />
+        </form>
+        <br /><img
+            src="https://www.lifewire.com/thmb/_Kcz92SYc2CaYMDaktNp4iRuwhY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/173580191-56a6f9b85f9b58b7d0e5cb75.jpg"
+            alt="image"
+            width="512px"
+        /><br /><br />
+        <a href="/">Voltar para a página principal</a><br />
+    </body>
 </html>
