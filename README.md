@@ -101,6 +101,9 @@ Instalar os seguintes:
 cabal install --lib scotty text
 ```
 
+## Observação:
+É importante que a pasta "pages/" esteja junto com o executável, senão dará erro 404. <br>
+
 # Resultado 📊:
 Abaixo está o teste do programa realizado no dia 25/09/2025: <br>
 ## Vídeo (acelerado):
