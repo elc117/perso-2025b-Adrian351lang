@@ -1,5 +1,6 @@
 CC = ghc
 REMOVE = rm
+CFLAGS = -dynamic
 
 MODULES_DIR = modules
 MODULES = $(wildcard $(MODULES_DIR)/*.hs)
@@ -16,7 +17,7 @@ run:
 	$(REMOVE) $(RUN_FILE)
 
 test:
-	$(CC) -dynamic $(MODULES) $(TEST_FILE).hs
+	$(CC) $(CFLAGS) $(MODULES) $(TEST_FILE).hs
 	./$(TEST_FILE)
 	$(REMOVE) $(TEST_FILE)
 
