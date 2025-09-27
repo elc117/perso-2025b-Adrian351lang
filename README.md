@@ -5,7 +5,7 @@ Semestre: 2025/2
 
 # Tema 📄:
 Este projeto se trata de um sistema de conversão/codificação de sistemas númericos, de criptografia e códigos. <br>
-Há uma página principal com os links que levam para cada subpágina. As páginas foram todas feitas em HTML puro e CSS. <br>
+Há uma página principal com os links que levam para cada subpágina. <br>
 Até agora foram implementadas as seguintes funcionalidades: <br>
 1. Conversor de bases numéricas.
 2. Codificar texto para morse.
@@ -95,12 +95,29 @@ A estrutura do projeto está da seguinte forma: <br>
 - docker.sh: roda o servidor no container docker. <br>
 
 ## Endereço:
-Se executado com o ghc na própria máquina, o link deve ser: <br>
+Provavelmente o link será esse: <br>
 http://localhost:3000/
 
 ## Requisitos:
+Para executar o programa, é necessário ter o GHC (Glasgow Haskell Compiler) instalado na máquina, assim como o Cabal, para as dependências. <br>
+Se usar o dockerfile, é necessário ter o Docker instalado também. <br>
+
+### Para o servidor:
 ```shell
-cabal install --lib scotty text HUnit
+cabal install --lib scotty text
+make run
+```
+
+### Para os testes:
+```shell
+cabal install --lib HUnit
+make test
+```
+
+### Para o docker:
+```shell
+chmod +x docker.sh
+./docker.sh
 ```
 
 ## Observação:
