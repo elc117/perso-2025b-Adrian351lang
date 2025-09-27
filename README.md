@@ -1,11 +1,12 @@
 # Identificação 🪪:
 Nome: Adrian Bellé Secretti <br>
-Curso: Sistemas de Informação
+Curso: Sistemas de Informação <br>
+Semestre: 2025/2
 
 # Tema 📄:
-Este projeto se trata de um sistema de conversão e codificação de sistemas númericos, de criptografia e códigos. <br>
-Conta com um menu simples html com as ferramentas de conversão disponíveis. <br>
-Até agora foram inplementadas as seguintes funcionalidades: <br>
+Este projeto se trata de um sistema de conversão/codificação de sistemas númericos, de criptografia e códigos. <br>
+Há uma página principal com os links que levam para cada subpágina. As páginas foram todas feitas em HTML puro e CSS. <br>
+Até agora foram implementadas as seguintes funcionalidades: <br>
 1. Conversor de bases numéricas.
 2. Codificar texto para morse.
 3. Decodificar morse para texto.
@@ -30,8 +31,8 @@ Para converter de base X para base Y, é necessário primeiro converter base X p
 Para números sem vírgula se usa a seguinte fórmula (em pseudocódigo): <br>
 ```soma(base ^ peso * dígito; do dígito menos significativo ao mais significativo)```
 <br> <br>
-Esta é a fórmula matemática detalhada: <br>
-<br>
+Esta é a fórmula matemática detalhada:
+<br> <br>
 ![image](https://wikimedia.org/api/rest_v1/media/math/render/svg/ed875ba981decb322a05335f7efdb5490244d67f)
 
 ### Passo 2. Converter de base 10 para base Y:
@@ -76,27 +77,28 @@ Primeiro, a chave é estendida para o mesmo tamanho do texto, e então o código
 Abaixo está a tabela com as combinações de letras: <br> <br>
 ![image](https://www.thecrazyprogrammer.com/wp-content/uploads/2017/08/Vigenere-Cipher-Table.png)
 
-## Conclusão:
+## Programação:
 A parte das funções de conversão de códigos em si não foi difícil, apenas exigiu tempo e estudo. <br>
 Muitos desses sistemas de codificação eu já tinha pelo menos um breve conhecimento. O que eu fiz foi estudar mais profundamente como eles funcionam, e desenvolver uma lógica para aplicar esses métodos na linguagem haskell. <br>
 Também tive que estudar várias funções nativas do haskell, como fromEnum, intercalate, isAlpha, cycle, divMod, funcões recursivas, entre outras que não conhecia. <br>
 O mais difícil foi fazer a interface funcionar corretamente, pois para pegar o input do usuário necessitei usar as caixas de input do html, e meu conhecimento de html é limitado. <br>
+O mais difícil foi desenvolver as interfaces, pois tive que estudar HTML e CSS, já que eu tinha pouco conhecimento sobre eles. <br>
+Para automatizar a compilação e execução usei makefile, docker e shellscript. <br>
 
 # Execução 🖥️:
-Criei vários arquivos de módulo com as funções, para compartilhá-los entre o arquivo do site e o arquivo de teste. <br>
-Deixei dois arquivos na pasta "main/", um arquivo de testes que usa o IO padrão, e um que abre o site na porta 3000. <br>
-Há arquivos html na pasta "pages/", com as interfaces. <br>
-O makefile que está no projeto já tem os comandos para compilar os testes e o site. <br>
+A estrutura do projeto está da seguinte forma: <br>
+- modules/: pasta com os módulos contendo as funções do programa, compartilhadas entre o arquivo scotty e o arquivo de testes. <br>
+- main/: pasta com dois arquivos, o scotty.hs, que abre o servidor na porta 3000, e o arquivo de testes, para testar as funções com o IO padrão do haskell. <br>
+- pages/: pasta com as páginas HTML e CSS. <br>
+- makefile: compila e roda o código. <br>
+- dockerfile: constrói a imagem docker para o scotty. <br>
+- docker.sh: roda o servidor no container docker. <br>
 
 ## Endereço:
 Se executado com o ghc na própria máquina, o link deve ser: <br>
 http://localhost:3000/
 
 ## Requisitos:
-Instalar os seguintes:
-1. scotty
-2. text
-
 ```shell
 cabal install --lib scotty text
 ```
@@ -135,3 +137,10 @@ https://github.com/user-attachments/assets/7c26c4eb-d095-4677-8fcd-dbe6c0fa7790
 23. Haskell : length. Disponível em: <https://zvon.org/other/haskell/Outputprelude/length_f.html>.
 24. WIKIPEDIA CONTRIBUTORS. Vigenère cipher. Disponível em: <https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher>.
 25. ELIAS, D. Gerador de Referências ABNT [Atualizado para 2021]. Disponível em: <https://www.mybib.com/pt/ferramentas/gerador-referencias-abnt>.
+26. DAVIDWEBB. What does the “in” keyword do in Haskell? Disponível em: <https://stackoverflow.com/questions/52705485/what-does-the-in-keyword-do-in-haskell>.
+27. Haskell Cheat Sheet. Disponível em: <https://hackage.haskell.org/package/CheatSheet-1.5/src/CheatSheet.pdf>.
+28. Let vs. Where - HaskellWiki. Disponível em: <https://wiki.haskell.org/Let_vs._Where>.
+29. HANDSOMEGORILLA. What does the use of a colon between symbols in a parameter in a Haskell function definition do? Disponível em: <https://stackoverflow.com/questions/35516840/what-does-the-use-of-a-colon-between-symbols-in-a-parameter-in-a-haskell-functio>.
+30. MOO. What does the : infix operator do in Haskell? Disponível em: <https://stackoverflow.com/questions/1696751/what-does-the-infix-operator-do-in-haskell>.
+31. GEEKSFORGEEKS. HTML input Tag. Disponível em: <https://www.geeksforgeeks.org/html/html-input-tag/>.
+32. W3SCHOOLS. CSS Tutorial. Disponível em: <https://www.w3schools.com/css/>.

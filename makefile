@@ -9,7 +9,7 @@ TEST_FILE = $(MAIN_DIR)/testes
 RUN_FILE = $(MAIN_DIR)/site
 
 PKGMAN = cabal
-PKGS = scotty text
+PKGS = scotty text HUnit
 
 run:
 	$(CC) $(MODULES) $(RUN_FILE).hs
