@@ -27,8 +27,7 @@ main = scotty 3000 $ do
         inputBase <- formParam "inputBase" :: ActionM Int
         outputBase <- formParam "outputBase" :: ActionM Int
 
-        let decimal = baseToDecimal inputBase (T.unpack input)
-        let result = decimalToBase outputBase decimal
+        let result = baseToBase (T.unpack input) inputBase outputBase
 
         html $ T.pack $ "<h3>Valor original:</h3>" ++ T.unpack input ++ " (base " ++ show inputBase ++ ")" ++
                         "<h3>Valor convertido:</h3>" ++ result ++ " (base " ++ show outputBase ++ ")" ++

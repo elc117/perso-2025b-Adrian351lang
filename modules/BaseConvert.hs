@@ -45,3 +45,9 @@ decimalToBase base n = reverse (convert n)       -- inverte o resultado para fic
         convert 0 = ""                           -- caso base para recursão
         convert x = let (q, r) = x `divMod` base -- divide e pega quociente e resto
                     in intToBase64 r : convert q -- converte o resto para dígito e recursa com o quociente
+
+-- converte um número em string de uma determinada base para outra base.
+-- recebe a base de origem, a base de destino e o número em string.
+-- usa baseToDecimal para converter para decimal e depois decimalToBase para converter para a nova base.
+baseToBase :: String -> Int -> Int -> String
+baseToBase number fromBase toBase = decimalToBase toBase (baseToDecimal fromBase number)

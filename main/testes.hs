@@ -10,8 +10,8 @@ baseTest :: Test
 baseTest = TestCase $ do
     assertEqual "FFFF(16) -> 65535(10)" (baseToDecimal 16 "FFFF") 65535
     assertEqual "42(10) -> 101010(2)" (decimalToBase 2 42) "101010"
-    assertEqual "3A(16) -> 111010(2)" (decimalToBase 2 (baseToDecimal 16 "3A")) "111010"
-    assertEqual "1111011011(2) -> 3DB(16)" (decimalToBase 16 (baseToDecimal 2 "1111011011")) "3DB"
+    assertEqual "3A(16) -> 111010(2)" (baseToBase "3A" 16 2) "111010"
+    assertEqual "1111011011(2) -> 3DB(16)" (baseToBase "1111011011" 2 16) "3DB"
 
 morseTest :: Test
 morseTest = TestCase $ do
