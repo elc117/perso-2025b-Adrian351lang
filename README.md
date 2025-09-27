@@ -1,20 +1,21 @@
 # Identificação 🪪:
-Nome: Adrian Bellé Secretti <br>
-Curso: Sistemas de Informação <br>
-Semestre: 2025/2
+- Nome: Adrian Bellé Secretti
+- Curso: Sistemas de Informação
+- Semestre: 2025/2
+- Desenvolvimento: 15/09 a 28/09
 
 # Tema 📄:
 Este projeto se trata de um sistema de conversão/codificação de sistemas númericos, de criptografia e códigos. <br>
 Há uma página principal com os links que levam para cada subpágina. <br>
 Até agora foram implementadas as seguintes funcionalidades: <br>
-1. Conversor de bases numéricas.
-2. Codificar texto para morse.
-3. Decodificar morse para texto.
-4. Criptografia de mensagens com cifra de césar.
-5. Converter número decimal para romanos.
-6. Converter de romanos para decimal.
-7. Codificar texto com cifra de Vigenère.
-8. Decodificar texto com cifra de Vigenère.
+- Conversor de bases numéricas.
+- Codificar texto para morse.
+- Decodificar morse para texto.
+- Criptografia de mensagens com cifra de césar.
+- Converter número decimal para romanos.
+- Converter de romanos para decimal.
+- Codificar texto com cifra de Vigenère.
+- Decodificar texto com cifra de Vigenère.
 
 # Desenvolvimento 🛠️:
 Explicação detalhada de como fiz cada sistema:
@@ -84,6 +85,8 @@ Também tive que estudar várias funções nativas do haskell, como fromEnum, in
 O mais difícil foi fazer a interface funcionar corretamente, pois para pegar o input do usuário necessitei usar as caixas de input do html, e meu conhecimento de html é limitado. <br>
 O mais difícil foi desenvolver as interfaces, pois tive que estudar HTML e CSS, já que eu tinha pouco conhecimento sobre eles. <br>
 Para automatizar a compilação e execução usei makefile, docker e shellscript. <br>
+A parte do docker não é necessária, mas pode ajudar com a questão das dependências. <br>
+Foram usadas IAs apenas para auxílio nas pesquisas, não para gerar código. <br>
 
 # Execução 🖥️:
 A estrutura do projeto está da seguinte forma: <br>
@@ -153,11 +156,11 @@ https://github.com/user-attachments/assets/7c26c4eb-d095-4677-8fcd-dbe6c0fa7790
 22. Haskell : cycle. Disponível em: <https://zvon.org/other/haskell/Outputprelude/cycle_f.html>.
 23. Haskell : length. Disponível em: <https://zvon.org/other/haskell/Outputprelude/length_f.html>.
 24. WIKIPEDIA CONTRIBUTORS. Vigenère cipher. Disponível em: <https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher>.
-25. ELIAS, D. Gerador de Referências ABNT [Atualizado para 2021]. Disponível em: <https://www.mybib.com/pt/ferramentas/gerador-referencias-abnt>.
-26. DAVIDWEBB. What does the “in” keyword do in Haskell? Disponível em: <https://stackoverflow.com/questions/52705485/what-does-the-in-keyword-do-in-haskell>.
-27. Haskell Cheat Sheet. Disponível em: <https://hackage.haskell.org/package/CheatSheet-1.5/src/CheatSheet.pdf>.
-28. Let vs. Where - HaskellWiki. Disponível em: <https://wiki.haskell.org/Let_vs._Where>.
-29. HANDSOMEGORILLA. What does the use of a colon between symbols in a parameter in a Haskell function definition do? Disponível em: <https://stackoverflow.com/questions/35516840/what-does-the-use-of-a-colon-between-symbols-in-a-parameter-in-a-haskell-functio>.
-30. MOO. What does the : infix operator do in Haskell? Disponível em: <https://stackoverflow.com/questions/1696751/what-does-the-infix-operator-do-in-haskell>.
-31. GEEKSFORGEEKS. HTML input Tag. Disponível em: <https://www.geeksforgeeks.org/html/html-input-tag/>.
-32. W3SCHOOLS. CSS Tutorial. Disponível em: <https://www.w3schools.com/css/>.
+25. DAVIDWEBB. What does the “in” keyword do in Haskell? Disponível em: <https://stackoverflow.com/questions/52705485/what-does-the-in-keyword-do-in-haskell>.
+26. Haskell Cheat Sheet. Disponível em: <https://hackage.haskell.org/package/CheatSheet-1.5/src/CheatSheet.pdf>.
+27. Let vs. Where - HaskellWiki. Disponível em: <https://wiki.haskell.org/Let_vs._Where>.
+28. HANDSOMEGORILLA. What does the use of a colon between symbols in a parameter in a Haskell function definition do? Disponível em: <https://stackoverflow.com/questions/35516840/what-does-the-use-of-a-colon-between-symbols-in-a-parameter-in-a-haskell-functio>.
+29. MOO. What does the : infix operator do in Haskell? Disponível em: <https://stackoverflow.com/questions/1696751/what-does-the-infix-operator-do-in-haskell>.
+30. GEEKSFORGEEKS. HTML input Tag. Disponível em: <https://www.geeksforgeeks.org/html/html-input-tag/>.
+31. W3SCHOOLS. CSS Tutorial. Disponível em: <https://www.w3schools.com/css/>.
+32. Juan Pedro Villa Isaza. STACK BUILDERS. Getting started with Haskell projects using Scotty. Disponível em: <https://www.stackbuilders.com/insights/getting-started-with-haskell-projects-using-scotty/>.
