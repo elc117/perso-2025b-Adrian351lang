@@ -91,7 +91,7 @@ getMorse ch
 -- converte uma string em código morse para texto comum
 -- separa as palavras (letras, em morse) e verifica cada uma
 morseToText :: String -> String
-morseToText str = map morseParse (words str) 
+morseToText str = map morseParse (words str)
 
 -- o inverso da de cima
 -- intercala as letras em morse com espaço entre elas

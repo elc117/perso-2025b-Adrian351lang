@@ -45,7 +45,7 @@ main = scotty 3000 $ do
         html $ T.pack $ "<h3>Texto original: </h3>" ++ originalText ++
                         "<h3>Texto em morse: </h3>" ++ morseText ++
                         "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
-    
+
     get "/morse/decode" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
         file "pages/morsedecode.html"
@@ -61,7 +61,7 @@ main = scotty 3000 $ do
     get "/caesar" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
         file "pages/caesar.html"
-    
+
     post "/caesar/result" $ do
         text <- formParam "text" :: ActionM Text
         shift <- formParam "shift" :: ActionM Int
@@ -81,11 +81,11 @@ main = scotty 3000 $ do
         html $ T.pack $ "<h3>Número original: </h3>" ++ show num ++
                         "<h3>Número em romanos: </h3>" ++ romanNum ++
                         "<br><br><a href=\"/\">Voltar para a página principal</a><br>"
-    
+
     get "/romans/from" $ do
         setHeader "Content-Type" "text/html; charset=utf-8"
         file "pages/fromromans.html"
-    
+
     post "/romans/from/result" $ do
         roman <- formParam "roman" :: ActionM Text
         let romanStr = T.unpack roman
