@@ -2,7 +2,7 @@ FROM haskell:latest
 
 WORKDIR /app
 
-RUN cabal update && cabal install --lib scotty text
+RUN cabal update && cabal install --lib scotty text HUnit
 
 # nota: copy deve ficar depois de cabal, para não ter que rebaixar as bibliotecas toda vez
 COPY . .

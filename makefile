@@ -1,5 +1,6 @@
 CC = ghc
 REMOVE = rm
+# -dynamic pode não ser necessário
 CFLAGS = -dynamic
 
 MODULES_DIR = modules
@@ -12,7 +13,7 @@ PKGMAN = cabal
 PKGS = scotty text HUnit
 
 run:
-	$(CC) $(MODULES) $(RUN_FILE).hs
+	$(CC) $(CFLAGS) $(MODULES) $(RUN_FILE).hs
 	./$(RUN_FILE)
 	$(REMOVE) $(RUN_FILE)
 
