@@ -14,7 +14,7 @@ toVigenereChar textChar keyChar
 toVigenere :: String -> String -> String
 toVigenere text key = map (\(textChar, keyChar) -> toVigenereChar textChar keyChar) (zip text extendedKey)
     where
-        extendedKey = take (length text) (cycle key) -- extende a chave para o tamanho do texto
+        extendedKey = take (length text) (cycle key) -- extende a chave para o mesmo tamanho do texto
 
 fromVigenereChar :: Char -> Char -> Char
 fromVigenereChar cipherChar keyChar
@@ -24,4 +24,4 @@ fromVigenereChar cipherChar keyChar
 fromVigenere :: String -> String -> String
 fromVigenere cipherText key = map (\(cipherChar, keyChar) -> fromVigenereChar cipherChar keyChar) (zip cipherText extendedKey)
     where
-        extendedKey = take (length cipherText) (cycle key) -- extende a chave para o tamanho do texto
+        extendedKey = take (length cipherText) (cycle key) -- extende a chave para o mesmo tamanho do texto

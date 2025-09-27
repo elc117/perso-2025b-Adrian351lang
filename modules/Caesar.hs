@@ -1,6 +1,6 @@
 module Caesar where
 
-import Data.Char (isAlpha, isUpper, isLower)
+import Data.Char (isAlpha)
 
 import SharedFuncs (letterPos, letterIn)
 
@@ -11,5 +11,7 @@ caesarShift c shift
     | isAlpha c = letterIn ((letterPos c + shift) `mod` 26) -- se é uma letra, aplica o deslocamento
     | otherwise = c                                         -- senão, mantém caracteres não alfabéticos inalterados
 
+-- função que aplica o deslocamento de César a uma string
+-- usa a função caesarShift para cada caractere da string
 caesar :: String -> Int -> String
 caesar str shift = map (\c -> caesarShift c shift) str

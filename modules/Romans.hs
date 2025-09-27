@@ -10,7 +10,7 @@ thousandToRoman d
   | d == 1 = "M"
   | d == 2 = "MM"
   | d == 3 = "MMM"
-  | otherwise = "⍰" -- caso especial para números maiores que 3999, que não possuem representação em numeral romano tradicional
+  | otherwise = "⍰" -- caso especial para números maiores que 3999, que não possuem representação em romano tradicional
 
 -- converte as centenas
 hundredToRoman:: Int -> String
