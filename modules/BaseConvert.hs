@@ -50,4 +50,8 @@ decimalToBase base n = reverse (convert n)       -- inverte o resultado para fic
 -- recebe a base de origem, a base de destino e o número em string.
 -- usa baseToDecimal para converter para decimal e depois decimalToBase para converter para a nova base.
 baseToBase :: String -> Int -> Int -> String
-baseToBase number fromBase toBase = decimalToBase toBase (baseToDecimal fromBase number)
+baseToBase number fromBase toBase
+    | fromBase == toBase = number                                       -- se as bases são iguais, retorna o número original
+    | fromBase == 10 = decimalToBase toBase (read number)               -- se a base de origem é decimal, converte diretamente de decimal para a base de destino
+    | toBase == 10 = show (baseToDecimal fromBase number)               -- se a base de destino é decimal, converte só para decimal
+    | otherwise = decimalToBase toBase (baseToDecimal fromBase number)  -- caso padrão, converte para decimal e depois para a nova base
