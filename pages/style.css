@@ -4,11 +4,11 @@ h1 {
 
 h2 {
     color: blue;
-    font-style: italic;
 }
 
 h3 {
     color: red;
+    font-size: 16px;
 }
 
 p {
@@ -19,7 +19,6 @@ p {
 img {
     border: 2px solid black;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px grey;
 }
 
 prompt {
