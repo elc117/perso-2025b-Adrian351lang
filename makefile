@@ -16,7 +16,7 @@ run:
 	$(REMOVE) $(RUN_FILE)
 
 test:
-	$(CC) $(MODULES) $(TEST_FILE).hs
+	$(CC) -dynamic $(MODULES) $(TEST_FILE).hs
 	./$(TEST_FILE)
 	$(REMOVE) $(TEST_FILE)
 
