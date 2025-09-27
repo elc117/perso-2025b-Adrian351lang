@@ -88,7 +88,7 @@ Para automatizar a compilação e execução usei makefile, docker e shellscript
 # Execução 🖥️:
 A estrutura do projeto está da seguinte forma: <br>
 - modules/: pasta com os módulos contendo as funções do programa, compartilhadas entre o arquivo scotty e o arquivo de testes. <br>
-- main/: pasta com dois arquivos, o scotty.hs, que abre o servidor na porta 3000, e o arquivo de testes, para testar as funções com o IO padrão do haskell. <br>
+- main/: pasta com dois arquivos, o scotty.hs, que abre o servidor na porta 3000, e o arquivo de testes, para testar as funções com a biblioteca HUnit. <br>
 - pages/: pasta com as páginas HTML e CSS. <br>
 - makefile: compila e roda o código. <br>
 - dockerfile: constrói a imagem docker para o scotty. <br>
@@ -100,7 +100,7 @@ http://localhost:3000/
 
 ## Requisitos:
 ```shell
-cabal install --lib scotty text
+cabal install --lib scotty text HUnit
 ```
 
 ## Observação:
