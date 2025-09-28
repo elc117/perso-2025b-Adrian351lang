@@ -124,3 +124,7 @@ main = scotty 3000 $ do
     get "/style.css" $ do
         setHeader "Content-Type" "text/css; charset=utf-8"
         file "pages/style.css"
+
+    get "/buttons.js" $ do
+        setHeader "Content-Type" "application/javascript; charset=utf-8"
+        file "pages/buttons.js"
