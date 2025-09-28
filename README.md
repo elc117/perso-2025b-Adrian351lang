@@ -82,8 +82,8 @@ Abaixo está a tabela com as combinações de letras: <br> <br>
 A parte das funções de conversão de códigos em si não foi difícil, apenas exigiu tempo e estudo. <br>
 Muitos desses sistemas de codificação eu já tinha pelo menos um breve conhecimento. O que eu fiz foi estudar mais profundamente como eles funcionam, e desenvolver uma lógica para aplicar esses métodos na linguagem haskell. <br>
 Também tive que estudar várias funções nativas do haskell, como fromEnum, intercalate, isAlpha, cycle, divMod, funcões recursivas, entre outras que não conhecia. <br>
-O mais difícil foi fazer a interface funcionar corretamente, pois para pegar o input do usuário necessitei usar as caixas de input do html, e meu conhecimento de html é limitado. <br>
 O mais difícil foi desenvolver as interfaces, pois tive que estudar HTML e CSS, já que eu tinha pouco conhecimento sobre eles. <br>
+Os botões da página principal foram feitos com javascript. <br>
 Para automatizar a compilação e execução usei makefile, docker e shellscript. <br>
 A parte do docker não é necessária, mas pode ajudar com a questão das dependências. <br>
 Foram usadas IAs apenas para auxílio nas pesquisas, não para gerar código. <br>
