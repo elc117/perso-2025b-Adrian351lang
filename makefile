@@ -16,14 +16,14 @@ REMOVE = rm
 PORT = 3000
 
 # esse procedimento abre o servidor
-run:
+run: $(MODULES) $(RUN_FILE).hs
 	@echo "abrindo o servidor na porta $(PORT)"
 	$(CC) $(CFLAGS) $(MODULES) $(RUN_FILE).hs
 	./$(RUN_FILE)
 	$(REMOVE) $(RUN_FILE)
 
 # esse procedimento realiza os testes com HUnit
-test:
+test: $(MODULES) $(TEST_FILE).hs
 	@echo "realizando testes com HUnit"
 	$(CC) $(CFLAGS) $(MODULES) $(TEST_FILE).hs
 	./$(TEST_FILE)
